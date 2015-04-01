@@ -1,0 +1,24 @@
+<%inherit file="base.htm" />
+
+<title>Festivals</title>
+
+<%block name="content">
+
+<h1>Upcoming Festivals!</h1>
+
+    %for Event in events:
+        <div class="item_container text-center">
+            <img src="${ STATIC_URL }homepage/media/${ Event.name }.jpg/"/>
+            <a href="http://localhost:8000/homepage/${ Event.name }">
+            <div>${ Event.name }</div>
+            </a>
+            <div>${ Event.location }</div>
+            <div>Event Start on: ${ Event.start_date }</div>
+            <div>Event Ends on: ${ Event.end_date }</div><br>
+            <div>${ Event.description }</div>
+            <div class="text-right">
+            </div>
+        </div>
+    %endfor
+
+</%block>

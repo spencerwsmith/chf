@@ -1,0 +1,41 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 36px 0;
+  text-align: center;
+  font-size: 2.5em;
+  color: red;
+  background-color: red;
+}
+
+h1 {
+    color: orange;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: darkgreen;
+    text-align: center;
+}
+
+.center {
+    color: red;
+}
+
+h3{
+    color:green;
+}
+
+h4{
+    color:darkblue;
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1.2em;
+    color: green;
+}

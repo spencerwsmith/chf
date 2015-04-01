@@ -1,0 +1,36 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<title>Sale Items</title>
+
+
+<div class="clearfix"></div>
+<div class="text-right">
+    <a href="/homepage/saleitems.create/" class="btn btn-warning">Create New Sale Item</a>
+</div>
+
+ <table id="saleitems_table" class ="table table-striped table-bordered table-hover">
+  <tr>
+      <th>Sale Item</th>
+      <th>Description</th>
+      <th>Low Price</th>
+      <th>High Price</th>
+      <th>Area</th>
+  </tr>
+  %for saleitem in saleitems:
+    <tr>
+      <td> ${ saleitem.name }</td>
+      <td> ${ saleitem.description }</td>
+      <td> ${ saleitem.lowPrice }</td>
+      <td> ${ saleitem.highPrice }</td>
+      <td> ${ saleitem.area }</td>
+      <td>
+          <a href="/homepage/saleitems.edit/${ saleitem.id }/">Edit</a>
+      </td>
+    </tr>
+  %endfor
+ </table>
+
+</%block>
+

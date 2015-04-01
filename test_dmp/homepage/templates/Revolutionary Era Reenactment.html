@@ -1,0 +1,50 @@
+<%inherit file="base.htm" />
+
+<title>Festivals</title>
+
+<%block name="content">
+
+<h1>The Revolutionary Era Reenactment</h1>
+<h2> This event is perfect for all ages. Admission is free, so come have a fun time as you learn and gain a greater appreciation for those who came before us!</h2>
+<br>
+        <div class="item_container">
+            <img src="${ STATIC_URL }homepage/media/${ events.name }.jpg/"/>
+            <div>${ events.name }</div>
+            <div>${ events.location }</div>
+            <div>Event Start on: ${ events.start_date }</div>
+            <div>Event Ends on: ${ events.end_date }</div><br>
+            <div>${ events.description }</div>
+            <div class="text-right">
+            </div>
+        </div>
+
+<br><h3>Listed below are the main areas you can expect to visit at this event:</h3>
+
+        <div class="col-md-10">
+            %for Area in areas:
+                <div class="col-md-4">
+                    <h2>Area: ${ Area.aname }</h2>
+                    <img src="${ STATIC_URL }homepage/media/${ Area.aname }.jpg/"/>
+                    <h4></h4>
+                    <div>${ Area.description }</div>
+                    <h5>An expected sale item at ${ Area.aname }:</h5>
+                    %for Expected_Sale_Item in esi:
+                        % if Area.aname == Expected_Sale_Item.area.aname:
+
+                                <img src="${ STATIC_URL }homepage/media/${ Expected_Sale_Item.name }.jpg/"/>
+                                <div>${ Expected_Sale_Item.name }</div>
+                                <div>${ Expected_Sale_Item.description }</div>
+                                <div>Low Estimate: ${ Expected_Sale_Item.low_price }</div>
+                                <div>High Estimate: ${ Expected_Sale_Item.high_price }</div>
+
+                        % endif
+                    %endfor
+                    <br>
+                </div>
+            %endfor
+
+
+        </div>
+
+
+</%block>

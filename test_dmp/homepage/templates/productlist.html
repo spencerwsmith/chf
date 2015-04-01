@@ -1,0 +1,31 @@
+<%inherit file="base.htm" />
+
+
+<%block name="content">
+
+
+<title>Products List</title>
+
+    %for Product in catalog_items:
+        <div class="item_container text-center text-muted">
+            <a href="/homepage/productcatalog/">
+            <div>${ Product.name }</div>
+            </a>
+            <div class="text-right">
+            </div>
+        </div>
+    %endfor
+
+
+
+<!--<div class="item_container text-center">
+    <img src="${ STATIC_URL }homepage/media/breeches.jpg"/>
+    <div class="text-muted">Breeches</div>
+    <div class="text-right">
+    <button class="add_button btn btn-xs btn-warning">Add to Cart</button>
+    </div>
+</div>-->
+
+
+</%block>
+

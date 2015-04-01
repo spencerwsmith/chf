@@ -1,0 +1,37 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+
+    %if user.is_authenticated() :
+    <form>
+    <div>
+    <strong>Please enter your shipping and credit card information</strong><br>
+
+    First name:
+           <p></p> <input type="text" name="firstname"><br>
+    Last name:
+            <p></p><input type="text" name="lastname"><br>
+    Street Address:
+            <p></p><input type="text" name="firstname"><br>
+    City:
+            <p></p><input type="text" name="lastname"><br>
+    State:
+            <p></p><input type="text" name="firstname"><br>
+    Zip Code:
+            <p></p><input type="text" name="lastname"><br><br>
+    Credit Cart Number:
+            <p></p><input type="text" name="firstname"><br>
+    Security Code:
+           <p></p> <input type="text" name="lastname"><br>
+
+        <a href="/homepage/purchase" class="btn btn-default">Purchase</a>
+    </div>
+    </form>
+     %else:
+       <div id="login">
+            <strong>You will need to login first in order to checkout, thank you.</strong>
+       </div>
+    %endif
+
+</%block>

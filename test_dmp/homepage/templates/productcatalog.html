@@ -1,0 +1,53 @@
+<%inherit file="base.htm" />
+
+
+<%block name="content">
+
+
+<title>Products Available</title>
+<h2>Items for Purchase:</h2>
+    %for Product in catalog_items:
+        <a href="/homepage/${ Product.id }/">
+        <div class="item_container text-center text-muted">
+            <img src="${ STATIC_URL }homepage/media/${ Product.name }.jpg/"/>
+            <a href="/homepage/productlist/">
+            <div>${ Product.name }</div>
+            <div>$${ Product.price }</div>
+            <div>${ Product.description }</div>
+            </a>
+            <div><input id="qty${ Product.id }"type = "number" name="Quantity" min="1" value="1" max="400"/></div>
+            <div class="text-right">
+                <button data-pid="${ Product.id }" class="add_button btn btn-xs btn-warning">Add to Cart</button>
+            </div>
+        </div>
+        </a>
+    %endfor
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="item_container text-center text-muted">
+    <h2>The following products are available for rental</h2>
+    %for Rental_Product in rentals:
+        <div class="item_container text-center text-muted">
+            <img src="${ STATIC_URL }homepage/media/${ Rental_Product.name }.jpg/"/>
+            <a href="/homepage/productlist/">
+            <div>${ Rental_Product.name }</div>
+            <div>$${ Rental_Product.price }</div>
+            <div>${ Rental_Product.description }</div>
+            </a>
+            <div><input id="qty${ Rental_Product.id }"type = "number" name="Quantity" min="1" value="1" max="400"/></div>
+            <div class="text-right">
+                <button data-pid="${ Rental_Product.id }" class="add_button btn btn-xs btn-warning">Add to Cart</button>
+            </div>
+        </div>
+        </a>
+    %endfor
+
+</div>
+
+
+</%block>
+

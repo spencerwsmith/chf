@@ -1,0 +1,81 @@
+<%inherit file="base.htm" />
+
+
+<%block name="content">
+<title>Overdue Rentals</title>
+
+<a href="/homepage/batchprocess.email/" class="btn btn-warning">Send Emails</a>
+  <table>
+   <tr>
+      <th>Renter's Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Date Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Date Due&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Discount Percent&nbsp;&nbsp;&nbsp;</th>
+      <th>Rental Product</th>
+
+  </tr>
+
+    %for Rented_Item in sixty:
+       <tr>
+           <h1>Items overdue by 60 days or more</h1>
+            <th>${ Rented_Item.renter }</th>
+            <th>${ Rented_Item.date_out }</th>
+            <th>${ Rented_Item.date_due }</th>
+            <th>${ Rented_Item.discount_percent }</th>
+            <th>${ Rented_Item.rental_product }</th>
+            <p></p>
+       </tr>
+    %endfor
+  </table>
+<br>
+<br>
+<br>
+
+ <table>
+   <tr>
+      <h1>Items overdue between 30 and 60 days</h1>
+      <th>Renter's Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Date Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Date Due&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Discount Percent&nbsp;&nbsp;&nbsp;</th>
+      <th>Rental Product</th>
+
+  </tr>
+
+    %for Rented_Item in thirty:
+       <tr>
+            <th>${ Rented_Item.renter }</th>
+            <th>${ Rented_Item.date_out }</th>
+            <th>${ Rented_Item.date_due }</th>
+            <th>${ Rented_Item.discount_percent }</th>
+            <th>${ Rented_Item.rental_product }</th>
+            <p></p>
+       </tr>
+    %endfor
+  </table>
+<br>
+<br>
+<br>
+
+ <table>
+   <tr>
+      <th>Renter's Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Date Out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Date Due&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Discount Percent&nbsp;&nbsp;&nbsp;</th>
+      <th>Rental Product</th>
+  </tr>
+
+    %for Rented_Item in zero:
+       <tr>
+           <h1>Items overdue for 30 days or less</h1>
+            <th>${ Rented_Item.renter }</th>
+            <th>${ Rented_Item.date_out }</th>
+            <th>${ Rented_Item.date_due }</th>
+            <th>${ Rented_Item.discount_percent }</th>
+            <th>${ Rented_Item.rental_product }</th>
+            <p></p>
+       </tr>
+    %endfor
+  </table>
+</%block>

@@ -1,0 +1,48 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<title>Users</title>
+
+
+<div class="clearfix"></div>
+<div class="text-right">
+    <a href="/homepage/users.create/" class="btn btn-warning">Create New User</a>
+</div>
+
+ <table id="users_table" class ="table table-striped table-bordered table-hover">
+  <tr>
+      <th>User Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Address 1</th>
+      <th>Address 2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>ZIP</th>
+      <th>Security Question</th>
+      <th>Security Answer</th>
+  </tr>
+  %for user in users:
+    <tr>
+      <td> ${ user.username }</td>
+      <td> ${ user.first_name }</td>
+      <td> ${ user.last_name }</td>
+      <td> ${ user.email }</td>
+      <td> ${ user.address1 }</td>
+      <td> ${ user.address2 }</td>
+      <td> ${ user.city }</td>
+      <td> ${ user.state }</td>
+      <td> ${ user.zip }</td>
+      <td> ${ user.security_question }</td>
+      <td> ${ user.security_answer }</td>
+      <td>
+          <a href="/homepage/users.edit/${ user.id }/">Edit</a>
+      </td>
+    </tr>
+  %endfor
+ </table>
+
+</%block>
+

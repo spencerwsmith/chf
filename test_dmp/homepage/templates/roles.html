@@ -1,0 +1,30 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<title>Roles</title>
+
+
+<div class="clearfix"></div>
+<div class="text-right">
+    <a href="/homepage/roles.create/" class="btn btn-warning">Create New Role</a>
+</div>
+
+ <table id="roles_table" class ="table table-striped table-bordered table-hover">
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+  </tr>
+  %for role in roles:
+    <tr>
+      <td> ${ role.name }</td>
+      <td> ${ role.type }</td>
+      <td>
+          <a href="/homepage/roles.edit/${ role.id }/">Edit</a>
+      </td>
+    </tr>
+  %endfor
+ </table>
+
+</%block>
+

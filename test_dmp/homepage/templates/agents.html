@@ -1,0 +1,50 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<title>Agents</title>
+
+
+<div class="clearfix"></div>
+<div class="text-right">
+    <a href="/homepage/agents.create/" class="btn btn-warning">Create New Agent</a>
+</div>
+
+ <table id="agents_table" class ="table table-striped table-bordered table-hover">
+  <tr>
+      <th>User Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Address 1</th>
+      <th>Address 2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>ZIP</th>
+      <th>Security Question</th>
+      <th>Security Answer</th>
+      <th>Appointment Date</th>
+  </tr>
+  %for agent in agents:
+    <tr>
+      <td> ${ agent.username }</td>
+      <td> ${ agent.first_name }</td>
+      <td> ${ agent.last_name }</td>
+      <td> ${ agent.email }</td>
+      <td> ${ agent.address1 }</td>
+      <td> ${ agent.address2 }</td>
+      <td> ${ agent.city }</td>
+      <td> ${ agent.state }</td>
+      <td> ${ agent.zip }</td>
+      <td> ${ agent.security_question }</td>
+      <td> ${ agent.security_answer }</td>
+      <td> ${ agent.appointmentDate }</td>
+      <td>
+          <a href="/homepage/agents.edit/${ agent.id }/">Edit</a>
+      </td>
+    </tr>
+  %endfor
+ </table>
+
+</%block>
+

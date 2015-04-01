@@ -1,0 +1,14 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+  <form method="POST">
+   <table>
+    ${ form }
+   </table>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href ="/homepage/saleitems.delete/${ saleitem.id }/" class="btn btn-danger">Delete Sale Item</a>
+
+  </form>
+
+</%block>
