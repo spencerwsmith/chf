@@ -4,9 +4,9 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427832337.666509
+_modified_time = 1427921758.029747
 _enable_loop = True
-_template_filename = 'C:\\Python34\\Lib\\site-packages\\django\\bin\\test_dmp\\homepage\\templates/index.loginform.html'
+_template_filename = 'C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/index.loginform.html'
 _template_uri = 'index.loginform.html'
 _source_encoding = 'ascii'
 import os, os.path, re
@@ -51,7 +51,7 @@ def render_content(context,**pageargs):
         __M_writer = context.writer()
         __M_writer('\r\n<div id="loginform" align="center">\r\n    <form id="loginform2" method="POST" action="/homepage/index.loginform/">\r\n        <table>\r\n            ')
         __M_writer(str( form ))
-        __M_writer('\r\n        </table>\r\n        <input type="submit"/>\r\n    </form>\r\n\r\n</div>\r\n<a href="http://localhost:8000/homepage/email_forgot_password"><button type="submit" class="btn btn-danger">Forgot Password</button></a>\r\n\r\n')
+        __M_writer('\r\n        </table>\r\n        <input type="submit"/>\r\n    </form>\r\n\r\n</div>\r\n<a href="http://localhost:8000/homepage/forgotpassword"><button type="submit" class="btn btn-danger">Forgot Password</button></a>\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -59,6 +59,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Python34\\Lib\\site-packages\\django\\bin\\test_dmp\\homepage\\templates/index.loginform.html", "line_map": {"35": 1, "52": 3, "53": 7, "54": 7, "27": 0, "60": 54, "45": 3}, "source_encoding": "ascii", "uri": "index.loginform.html"}
+{"line_map": {"35": 1, "52": 3, "53": 7, "54": 7, "27": 0, "60": 54, "45": 3}, "source_encoding": "ascii", "uri": "index.loginform.html", "filename": "C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/index.loginform.html"}
 __M_END_METADATA
 """

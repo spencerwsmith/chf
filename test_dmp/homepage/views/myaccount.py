@@ -104,7 +104,6 @@ def edit(request):
 
 
 class UserEditForm(forms.Form):
-    groupChoice = Group.objects.all()
     username = forms.CharField(label="User Name", required=True, max_length=80)
     first_name = forms.CharField(label="First Name", required=True, max_length=80)
     last_name = forms.CharField(label="Last Name", required=True, max_length=80)

@@ -51,20 +51,7 @@ class LoginForm(forms.Form):
         return self.cleaned_data
 
 
-@view_function
-def forgotpassword(request):
-    params = {
 
-    }
-
-    user = hmod.Users.objects.get(id=request.urlparams[0])
-    #this is a comment
-    ran = random.randint(1000, 100000000)
-
-    send_mail('My Special Email', 'Your new password is: %s' % ran, 'spencerw.smith@yahoo.com',
-        ['smittystud7@yahoo.com'], fail_silently=False)
-
-    return dmp_render_to_response(request, 'email_forgot_password.html', params)
 
 
 

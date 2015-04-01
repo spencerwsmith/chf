@@ -12,6 +12,7 @@
       <w>endfor</w>
       <w>endif</w>
       <w>forgotpass</w>
+      <w>forgotpassform</w>
       <w>forgotpassword</w>
       <w>glyphicon</w>
       <w>isrental</w>
