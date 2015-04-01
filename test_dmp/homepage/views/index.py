@@ -58,7 +58,7 @@ def forgotpassword(request):
     }
 
     user = hmod.Users.objects.get(id=request.urlparams[0])
-
+    #this is a comment
     ran = random.randint(1000, 100000000)
 
     send_mail('My Special Email', 'Your new password is: %s' % ran, 'spencerw.smith@yahoo.com',
