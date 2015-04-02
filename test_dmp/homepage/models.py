@@ -27,7 +27,7 @@ class Users(AbstractUser):
     security_question = models.TextField(null=True, blank=True)
     security_answer = models.TextField(null=True, blank=True)
     reset_code = models.TextField(null=True, blank=True)
-    exp_date = models.DateTimeField(null=True, blank=True)
+    exp_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.username

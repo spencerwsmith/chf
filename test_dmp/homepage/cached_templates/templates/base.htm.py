@@ -4,9 +4,9 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427830670.211136
+_modified_time = 1427935518.134447
 _enable_loop = True
-_template_filename = 'C:\\Python34\\Lib\\site-packages\\django\\bin\\test_dmp\\homepage\\templates/base.htm'
+_template_filename = 'C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
@@ -19,11 +19,11 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n')
@@ -46,7 +46,7 @@ def render_body(context,**pageargs):
             __M_writer('                <li role="presentation"><a id="show_login_dialog">Login</a>\r\n                <li role="presentation"><a href="http://localhost:8000/homepage/createaccount.create/" class="glyphicon glyphicon-plus-sign"> Create Account</a>\r\n')
         __M_writer('\r\n\r\n        </div>\r\n</nav>\r\n\r\n<div class="row">\r\n    <div class="col-md-2">\r\n        <ul class="nav nav-pills nav-stacked">\r\n\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/users" class="glyphicon glyphicon-user"> Users</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/agents" class="glyphicon glyphicon-star"> Agents</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/roles" class="glyphicon glyphicon-star-empty"> Roles</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/events" class="glyphicon glyphicon-bullhorn"> Events</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/product" class="glyphicon glyphicon-gift"> Products</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/productcatalog" class="glyphicon glyphicon-gift"> Products Available</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/productlist" class="glyphicon glyphicon-gift"> Product List</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/saleitems" class="glyphicon glyphicon-shopping-cart"> SaleItems</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/festivals" class="glyphicon glyphicon-leaf"> Festivals</a>\r\n')
         if request.user.is_authenticated():
-            __M_writer('            <li role="presentation"><a href="http://localhost:8000/homepage/myaccount" class="glyphicon glyphicon-user"> My Account</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/batchprocess" class="glyphicon glyphicon-exclamation-sign"> Overdue Rentals</a>\r\n')
+            __M_writer('            <li role="presentation"><a href="http://localhost:8000/homepage/myaccount" class="glyphicon glyphicon-user"> My Account</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/batchprocess" class="glyphicon glyphicon-exclamation-sign"> Overdue Rentals</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/rentalreturn" class="glyphicon glyphicon-random"> rentalreturn</a>\r\n')
         __M_writer('        </ul>\r\n     </div>\r\n\r\n\r\n    <div class="col-md-10">\r\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
@@ -73,6 +73,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "base.htm", "line_map": {"68": 84, "74": 68, "16": 4, "18": 0, "28": 2, "29": 4, "30": 5, "34": 5, "35": 16, "36": 20, "37": 20, "38": 22, "39": 22, "40": 32, "41": 32, "42": 32, "43": 49, "44": 50, "45": 53, "46": 54, "47": 57, "48": 75, "49": 76, "50": 79, "55": 96, "56": 103, "62": 84}, "filename": "C:\\Python34\\Lib\\site-packages\\django\\bin\\test_dmp\\homepage\\templates/base.htm", "source_encoding": "ascii"}
+{"filename": "C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/base.htm", "uri": "base.htm", "source_encoding": "ascii", "line_map": {"68": 85, "74": 68, "16": 4, "18": 0, "28": 2, "29": 4, "30": 5, "34": 5, "35": 16, "36": 20, "37": 20, "38": 22, "39": 22, "40": 32, "41": 32, "42": 32, "43": 49, "44": 50, "45": 53, "46": 54, "47": 57, "48": 75, "49": 76, "50": 80, "55": 97, "56": 104, "62": 85}}
 __M_END_METADATA
 """
