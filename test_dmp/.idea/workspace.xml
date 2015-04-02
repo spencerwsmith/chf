@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c248cd0-b992-4728-b0db-c1e14b52625f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage/views/ad.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage/templates/error.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage/templates/newpass.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage/views/newpass.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage/templates/passcode.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage/views/passcode.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage/templates/rentalreturn.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage/views/rentalreturn.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Spencer.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Spencer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/cached_templates/templates/base.htm.py" afterPath="$PROJECT_DIR$/homepage/cached_templates/templates/base.htm.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/cached_templates/templates/homepage/templates/base.htm.py" afterPath="$PROJECT_DIR$/homepage/cached_templates/templates/homepage/templates/base.htm.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/templates/base.htm" afterPath="$PROJECT_DIR$/homepage/templates/base.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/templates/forgotpassword.html" afterPath="$PROJECT_DIR$/homepage/templates/forgotpassword.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/views/forgotpassword.py" afterPath="$PROJECT_DIR$/homepage/views/forgotpassword.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/models.py" afterPath="$PROJECT_DIR$/homepage/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homepage/views/checkout.py" />
+      <change type="DELETED" beforePath="C:\Users\Spencer\Documents\School\CHF\chf\test_dmp\homepage\views\email_forgot_password.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/cached_templates/templates/checkout.html.py" afterPath="$PROJECT_DIR$/homepage/cached_templates/templates/checkout.html.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/templates/checkout.html" afterPath="$PROJECT_DIR$/homepage/templates/checkout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/views/purchase.py" afterPath="$PROJECT_DIR$/homepage/views/purchase.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test_dmp.iws" />
@@ -45,11 +35,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homepage/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7690476" vertical-offset="85" max-vertical-offset="4284">
-              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4284">
+              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkout.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/homepage/views/checkout.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5823096" vertical-offset="817" max-vertical-offset="1377">
+              <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+              <folding>
+                <element signature="e#23#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homepage/views/users.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1972" max-vertical-offset="2720">
+              <caret line="128" column="78" selection-start-line="128" selection-start-column="65" selection-end-line="128" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="purchase.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homepage/views/purchase.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="413" max-vertical-offset="901">
+              <caret line="47" column="67" selection-start-line="20" selection-start-column="4" selection-end-line="47" selection-end-column="67" />
+              <folding>
+                <element signature="e#23#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forgotpassword.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homepage/views/forgotpassword.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="443" max-vertical-offset="1020">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <element signature="e#23#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homepage/templates/checkout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="493">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forgotpassword.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homepage/templates/forgotpassword.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="391">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="13" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -93,10 +149,7 @@
         <option value="$PROJECT_DIR$/homepage/templates/productcatalog.html" />
         <option value="$PROJECT_DIR$/homepage/views/shoppingcart.py" />
         <option value="$PROJECT_DIR$/homepage/views/Revolutionary Era Reenactment.py" />
-        <option value="$PROJECT_DIR$/homepage/views/checkout.py" />
         <option value="$PROJECT_DIR$/homepage/templates/purchase.html" />
-        <option value="$PROJECT_DIR$/homepage/templates/checkout.html" />
-        <option value="$PROJECT_DIR$/homepage/views/purchase.py" />
         <option value="$PROJECT_DIR$/homepage/views/index.py" />
         <option value="$PROJECT_DIR$/homepage/views/myaccount.py" />
         <option value="$PROJECT_DIR$/homepage/templates/index.loginform.html" />
@@ -114,6 +167,9 @@
         <option value="$PROJECT_DIR$/homepage/views/batchprocess.py" />
         <option value="$PROJECT_DIR$/homepage/models.py" />
         <option value="$PROJECT_DIR$/homepage/views/passcode.py" />
+        <option value="$PROJECT_DIR$/homepage/views/purchase.py" />
+        <option value="$PROJECT_DIR$/homepage/templates/checkout.html" />
+        <option value="$PROJECT_DIR$/homepage/views/checkout.py" />
       </list>
     </option>
   </component>
@@ -525,7 +581,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427922663852</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2:29">
+      <created>1428001780885</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1428001780885</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -629,13 +691,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homepage/styles/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="782">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homepage/templates/users.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22869955" vertical-offset="0" max-vertical-offset="918">
@@ -800,32 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homepage/templates/email_forgot_password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09115282" vertical-offset="0" max-vertical-offset="746">
-          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homepage/views/email_forgot_password.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="629">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="41" />
-          <folding>
-            <element signature="e#23#55#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homepage/templates/forgotpassword.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="391">
-          <caret line="11" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homepage/templates/myaccount.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.576923" vertical-offset="51" max-vertical-offset="901">
@@ -974,22 +1003,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homepage/views/purchase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23095238" vertical-offset="107" max-vertical-offset="697">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homepage/templates/checkout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0659899" vertical-offset="107" max-vertical-offset="714">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homepage/views/newpass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1088">
@@ -1018,21 +1031,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/homepage/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="4284">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homepage/templates/email_forgot_password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="221">
+          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/homepage/views/forgotpassword.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54299754" vertical-offset="272" max-vertical-offset="1020">
-          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="30" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="426" max-vertical-offset="1020">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="e#23#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homepage/models.py">
+    <entry file="file://$PROJECT_DIR$/homepage/templates/forgotpassword.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7690476" vertical-offset="85" max-vertical-offset="4284">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="391">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="13" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homepage/templates/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="493">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homepage/views/users.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1853" max-vertical-offset="2720">
+          <caret line="128" column="78" selection-start-line="128" selection-start-column="65" selection-end-line="128" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homepage/views/purchase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="413" max-vertical-offset="901">
+          <caret line="47" column="67" selection-start-line="20" selection-start-column="4" selection-end-line="47" selection-end-column="67" />
+          <folding>
+            <element signature="e#23#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homepage/views/checkout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5823096" vertical-offset="817" max-vertical-offset="1377">
+          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+          <folding>
+            <element signature="e#23#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

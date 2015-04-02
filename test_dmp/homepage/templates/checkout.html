@@ -4,30 +4,17 @@
 
 
     %if user.is_authenticated() :
-    <form>
-    <div>
-    <strong>Please enter your shipping and credit card information</strong><br>
 
-    First name:
-           <p></p> <input type="text" name="firstname"><br>
-    Last name:
-            <p></p><input type="text" name="lastname"><br>
-    Street Address:
-            <p></p><input type="text" name="firstname"><br>
-    City:
-            <p></p><input type="text" name="lastname"><br>
-    State:
-            <p></p><input type="text" name="firstname"><br>
-    Zip Code:
-            <p></p><input type="text" name="lastname"><br><br>
-    Credit Cart Number:
-            <p></p><input type="text" name="firstname"><br>
-    Security Code:
-           <p></p> <input type="text" name="lastname"><br>
+    <form method="POST">
+   <table>
+    ${ form }
+   </table>
+    <br>
+    <button type="submit" class="btn btn-primary">Purchase</button>
 
-        <a href="/homepage/purchase" class="btn btn-default">Purchase</a>
-    </div>
-    </form>
+  </form>
+
+
      %else:
        <div id="login">
             <strong>You will need to login first in order to checkout, thank you.</strong>
