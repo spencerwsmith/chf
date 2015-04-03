@@ -24,35 +24,43 @@ def process_request(request):
     form = checkoutform()
     if request.method == 'POST':
         form = checkoutform(request.POST)
+        if form.is_valid():
+            API_URL = 'http://dithers.cs.byu.edu/iscore/api/v1/charges'
+            API_KEY = '29b716033cf11e06afd6bdf91c6b38ed'
+            user = hmod.Users.objects.get(username=form.cleaned_data['username'])
 
-        API_URL = 'http://dithers.cs.byu.edu/iscore/api/v1/charges'
-        API_KEY = '29b716033cf11e06afd6bdf91c6b38ed'
+            #reset_code = form.cleaned_data['reset_code']
+            # do form.cleaned data, instead of hard coding it in
+            r = requests.post(API_URL, data={
+                'apiKey': API_KEY,
+                'currency': 'usd',
+                'amount': '5.99',
+                'type': form.cleaned_data['type'],
+                'number': form.cleaned_data['number'],
+                'exp_month': form.cleaned_data['exp_month'],
+                'exp_year': form.cleaned_data['exp_year'],
+                'cvc': form.cleaned_data['cvc'],
+                'name': 'Cosmo Limesandal',
+                'description': 'Charge for cosmo@is411.byu.edu'
+            })
 
-        # do form.cleaned data, instead of hard coding it in
-        r = requests.post(API_URL, data={
-            'apiKey': API_KEY,
-            'currency': 'usd',
-            'amount': '5.99',
-            'type': 'Visa',
-            'number': '4732817300654',
-            'exp_month': '10',
-            'exp_year': '15',
-            'cvc': '411',
-            'name': 'Cosmo Limesandal',
-            'description': 'Charge for cosmo@is411.byu.edu'
-        })
+            print(r.text)
 
-        print(r.text)
+            resp = r.json()
+            if 'error' in resp:
+                print("ERROR: ", resp['error'])
 
-        resp = r.json()
-        if 'error' in resp:
-            print("ERROR: ", resp['error'])
+            else:
+                print(resp.keys())
+                print(resp['ID'])
 
-        else:
-            print(resp.keys())
-            print(resp['ID'])
+            send_mail('CHF Receipt', 'Thank you for your purchase', 'spencerw.smith@yahoo.com',
+            [user.email], fail_silently=False)
 
-        return dmp_render_to_response(request, 'purchase.html', template_vars)
+
+
+
+            return dmp_render_to_response(request, 'purchase.html', template_vars)
 
     template_vars['form'] = form
     return dmp_render_to_response(request, 'checkout.html', template_vars)
@@ -66,11 +74,11 @@ class checkoutform(forms.Form):
     number = forms.CharField(label="Credit Card Number", max_length=16)
     exp_month = forms.CharField(max_length=2)
     exp_year = forms.CharField(max_length=2)
-    cvc = forms.CharField(max_length=4)
+    cvc = forms.CharField(max_length=4, label="CVC")
     #name = 'Cosmo Limesandal'
     #description = 'Charge for cosmo@is411.byu.edu'
 
     def clean(self):
-        username = authenticate(username=self.cleaned_data.get('username'))
+        user = authenticate(username=self.cleaned_data.get('username'))
 
         return self.cleaned_data

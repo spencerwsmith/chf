@@ -18,7 +18,7 @@ import requests
 def process_request(request):
     params = {}
 
-    API_URL = 'http://dithers.cs.byu.edu/iscore/api/v1/charges'
+    '''API_URL = 'http://dithers.cs.byu.edu/iscore/api/v1/charges'
     API_KEY = '29b716033cf11e06afd6bdf91c6b38ed'
 
     r = requests.post(API_URL, data={
@@ -42,7 +42,6 @@ def process_request(request):
 
     else:
         print(resp.keys())
-        print(resp['ID'])
-
+        print(resp['ID'])'''
 
     return dmp_render_to_response(request, 'purchase.html', params)

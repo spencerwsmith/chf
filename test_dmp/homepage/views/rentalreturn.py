@@ -23,18 +23,28 @@ def process_request(request):
     if request.method == 'POST':
         form = rrform(request.POST)
         if form.is_valid():
-            renter = hmod.Users.objects.get(renter=form.cleaned_data['username'])
-            sku = form.cleaned_data['reset_code']
+            renter = form.cleaned_data['renter']
+            sku = form.cleaned_data['sku']
             date_in = form.cleaned_data['date_in']
+            damages = form.cleaned_data['damages']
+            description = form.cleaned_data['description']
+
+            template_vars['form'] = form
+            return dmp_render_to_response(request, 'rrprocessed.html', template_vars)
 
 
 
     template_vars['form'] = form
-    return dmp_render_to_response(request, 'passcode.html', template_vars)
+    return dmp_render_to_response(request, 'rentalreturn.html', template_vars)
 
 
+#allGroups = Users.groups.all()
+'''groups = forms.ModelMultipleChoiceField(queryset=groupChoice)'''
+allUsers = hmod.Users.objects.all()
 class rrform(forms.Form):
-    renter = forms.ChoiceField(hmod.Users.objects.all())
+    renter = forms.ModelMultipleChoiceField(queryset=allUsers)
     sku = forms.CharField()
-    date_in = forms.DateField()
+    date_in = forms.DateField(label='Date In (MM/DD/YY)')
+    damages = forms.CharField()
+    description = forms.CharField()
 
