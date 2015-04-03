@@ -47,7 +47,7 @@
             <li role="presentation"><a href="http://localhost:8000/homepage/terms" class="glyphicon glyphicon-book"> Terms</a>
             <li role="presentation"><a href="http://localhost:8000/homepage/about" class="glyphicon glyphicon-list-alt"> About</a>
             %if request.user.is_authenticated():
-                <li role="presentation"><a href="http://localhost:8000/homepage/checkout/" class="glyphicon glyphicon-tags"> Checkout</a>
+                <li role="presentation"><a href="http://localhost:8000/homepage/shoppingcart.checkout/" class="glyphicon glyphicon-tags"> Checkout</a>
                 <li role="presentation"><a id="show_logout_dialog"> Logout</a>
                 <li role="presentation"><a id="cart"> Shopping Cart</a>
             %else:

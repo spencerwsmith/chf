@@ -23,6 +23,7 @@
       <w>myaccountpass</w>
       <w>orem</w>
       <w>overdueitems</w>
+      <w>pricelist</w>
       <w>productcatalog</w>
       <w>productlist</w>
       <w>rentalreturn</w>
@@ -32,6 +33,7 @@
       <w>shoppingcart</w>
       <w>spiderman</w>
       <w>templater</w>
+      <w>totalprice</w>
     </words>
   </dictionary>
 </component>
