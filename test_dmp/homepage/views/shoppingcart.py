@@ -142,15 +142,11 @@ def checkout(request):
                 name = product.name
                 print(name)
                 print(price)
-                template_vars['productlist'].append(name)
+                template_vars['productlist'].append([name, price])
                 template_vars['pricelist'].append(price)
 
             #for loop to take out each product in productlist
-
-
-
-
-
+            template_vars['tp'] = totalprice
 
             # do form.cleaned data, instead of hard coding it in
             r = requests.post(API_URL, data={
@@ -176,8 +172,10 @@ def checkout(request):
                 print(resp.keys())
                 print(resp['ID'])
 
-            send_mail('CHF Receipt', 'Thank you for your purchase. Your total comes out to $%s. Here are your products: %s. Here are the prices: %s' % (totalprice, template_vars['productlist'], template_vars['pricelist']), 'spencerw.smith@yahoo.com',
-            [user.email], fail_silently=False)
+            body = dmp_render(request, 'email_receipt.html', template_vars)
+
+            send_mail('CHF Receipt', body, 'spencerw.smith@yahoo.com',
+            [user.email], fail_silently=False, html_message=body)
 
             return dmp_render_to_response(request, 'purchase.html', template_vars)
 
@@ -191,8 +189,8 @@ class checkoutform(forms.Form):
     amount = '3.99' #get this from session?
     type = forms.CharField(label="Card Type")
     number = forms.CharField(label="Credit Card Number", max_length=16, min_length=10)
-    exp_month = forms.CharField(max_length=2, min_length=10)
-    exp_year = forms.CharField(max_length=2, min_length=10)
+    exp_month = forms.CharField(max_length=2, min_length=2)
+    exp_year = forms.CharField(max_length=2, min_length=2)
     cvc = forms.CharField(max_length=4, label="CVC", min_length=3)
     #name = 'Cosmo Limesandal'
     #description = 'Charge for cosmo@is411.byu.edu'

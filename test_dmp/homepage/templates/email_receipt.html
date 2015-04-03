@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div>Thank you for your purchase.</div>
+    <div>Your total comes out to</div>
+    <div>Here are your products:</div>
+    <table>
+    %for name, price in productlist:
+        <tr>
+        <th>${ name }</th>
+        <th>${ price }</th>
+        </tr>
+    %endfor
+        <tr>Your total price is: ${ tp }</tr>
+    </table>
+
+</body>
+</html>
