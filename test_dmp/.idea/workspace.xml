@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c248cd0-b992-4728-b0db-c1e14b52625f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Spencer.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Spencer.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/views/index.py" afterPath="$PROJECT_DIR$/homepage/views/index.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/init_db.py" afterPath="$PROJECT_DIR$/init_db.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/models.py" afterPath="$PROJECT_DIR$/homepage/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/templates/rentalreturn.html" afterPath="$PROJECT_DIR$/homepage/templates/rentalreturn.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage/views/rentalreturn.py" afterPath="$PROJECT_DIR$/homepage/views/rentalreturn.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test_dmp.iws" />
@@ -39,8 +34,8 @@
       <file leaf-file-name="init_db.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/init_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="10716" max-vertical-offset="13719">
-              <caret line="636" column="24" selection-start-line="636" selection-start-column="24" selection-end-line="636" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1096" max-vertical-offset="13719">
+              <caret line="75" column="8" selection-start-line="69" selection-start-column="0" selection-end-line="83" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -49,7 +44,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homepage/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4301">
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="4301">
               <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
               <folding />
             </state>
@@ -59,8 +54,8 @@
       <file leaf-file-name="index.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homepage/views/index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.556872" vertical-offset="785" max-vertical-offset="1683">
-              <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.15841584" vertical-offset="616" max-vertical-offset="1751">
+              <caret line="40" column="114" selection-start-line="40" selection-start-column="114" selection-end-line="40" selection-end-column="114" />
               <folding>
                 <element signature="e#23#55#0" expanded="true" />
               </folding>
@@ -586,7 +581,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428116442827</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="4/3 9pm">
+      <created>1428184388838</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1428184388838</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -623,7 +624,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24469821" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27406198" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1043,14 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/init_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="10716" max-vertical-offset="13719">
-          <caret line="636" column="24" selection-start-line="636" selection-start-column="24" selection-end-line="636" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homepage/templates/rentalreturn.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45721272" vertical-offset="153" max-vertical-offset="833">
@@ -1101,10 +1094,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/init_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1096" max-vertical-offset="13719">
+          <caret line="75" column="8" selection-start-line="69" selection-start-column="0" selection-end-line="83" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/homepage/views/index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.556872" vertical-offset="785" max-vertical-offset="1683">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.15841584" vertical-offset="616" max-vertical-offset="1751">
+          <caret line="40" column="114" selection-start-line="40" selection-start-column="114" selection-end-line="40" selection-end-column="114" />
           <folding>
             <element signature="e#23#55#0" expanded="true" />
           </folding>

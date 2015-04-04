@@ -39,21 +39,25 @@ def loginform(request):
                 s = Server('colheritagefoundation.info', port=8484, get_info=GET_ALL_INFO)
 
                 c = Connection(s, auto_bind=True, client_strategy=STRATEGY_SYNC, user=username, password=pw, authentication=AUTH_SIMPLE, raise_exceptions=False)
-                #user_info = c.response[0]['attributes']
+                #
                 print(c)
                 print(c.user)
 
                 if c is not None:
-                    '''u, created = hmod.Users.objects.get_or_create(username=username)
-                    u.first_name = c.
+                    print('Ready to get or create a new user')
+                    u, created = hmod.Users.objects.get_or_create(username=username)
+                    print('got or created username')
+                    #user_info = c.response[0]['attributes']
+                    '''u.first_name = c.
                     u.last_name = c.
-                    u.email = c.
+                    u.email = c.'''
                     u.set_password(pw)
-                    u.save()'''
+                    u.save()
+                    print('user received or created')
 
                     print('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh')
-                    #u2 = authenticate(username,pw)
-                    #login(request, u2)
+                    u2 = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+                    login(request, u2)
                     return HttpResponse('''
                     <script>
                     window.location.href = '/homepage/index';
