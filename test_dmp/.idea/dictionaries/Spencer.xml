@@ -26,7 +26,9 @@
       <w>pricelist</w>
       <w>productcatalog</w>
       <w>productlist</w>
+      <w>rentalid</w>
       <w>rentalreturn</w>
+      <w>rentalsout</w>
       <w>saleitem</w>
       <w>saleitems</w>
       <w>securitycode</w>

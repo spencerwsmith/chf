@@ -14,12 +14,19 @@ from django.contrib.auth.models import Group, Permission, ContentType
 from django.core.mail import send_mail
 import random
 import requests
+import datetime
 
 
 
 @view_function
 def process_request(request):
     template_vars = {}
+
+    rentalsout = hmod.Rented_Item.objects.filter(date_in__isnull=True)
+    template_vars['rentalsout'] = rentalsout
+
+
+
 
     form = rrform()
     if request.method == 'POST':
@@ -31,11 +38,19 @@ def process_request(request):
             user = hmod.Users.objects.get(username=form.cleaned_data['renter'])
 
             renter = form.cleaned_data['renter']
+            rentalid = form.cleaned_data['rentalid']
             product_name = form.cleaned_data['product_name']
             sku = form.cleaned_data['sku']
             date_in = form.cleaned_data['date_in']
             damages = form.cleaned_data['damages']
             description = form.cleaned_data['description']
+
+            Rented_Item = hmod.Rented_Item.objects.get(rentalid=form.cleaned_data['rentalid'])
+            Rented_Item.date_in = form.cleaned_data['date_in']
+            Rented_Item.save()
+            print(Rented_Item.rentalid)
+            print(Rented_Item.date_in)
+
 
             r = requests.post(API_URL, data={
                 'apiKey': API_KEY,
@@ -86,6 +101,7 @@ allUsers = hmod.Users.objects.all()
 allProducts = hmod.Rental_Product.objects.all()
 class rrform(forms.Form):
     renter = forms.CharField(label="Renter's Username")
+    rentalid = forms.CharField(label="Rental ID")
     product_name = forms.CharField(label="Product Name")
     sku = forms.CharField()
     date_in = forms.DateField(label='Date In (MM/DD/YY)')

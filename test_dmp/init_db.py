@@ -512,6 +512,17 @@ tr.shipped_by = hmod.Agent.objects.get(username='ProfessorX')
 tr.tracking_number = '15'
 tr.save()
 
+tr = hmod.Transaction()
+tr.customer = hmod.Users.objects.get(username='Superman')
+tr.date = '2015-03-01'
+tr.phone = '720-554-6851'
+tr.date_packed = '2015-03-01'
+tr.date_shipped = '2015-03-01'
+tr.packed_by = hmod.Agent.objects.get(username='ProfessorX')
+tr.shipped_by = hmod.Agent.objects.get(username='ProfessorX')
+tr.tracking_number = '3'
+tr.save()
+
 li = hmod.Line_Item()
 li.amount = '23.75'
 li.transaction = hmod.Transaction.objects.get(tracking_number='10')
@@ -611,6 +622,7 @@ ri.date_in = None
 ri.discount_percent = '0.00'
 ri.rental_product = hmod.Rental_Product.objects.get(serial_number='0005')
 ri.renter = hmod.Users.objects.get(username='Curry')
+ri.rentalid = '1'
 ri.save()
 
 
@@ -623,6 +635,19 @@ ri.date_in = None
 ri.discount_percent = '0.00'
 ri.rental_product = hmod.Rental_Product.objects.get(serial_number='0006')
 ri.renter = hmod.Users.objects.get(username='Spencer')
+ri.rentalid = '2'
+ri.save()
+
+ri = hmod.Rented_Item()
+ri.amount = '8.99'
+ri.transaction = hmod.Transaction.objects.get(tracking_number='3')
+ri.date_out = '2015-04-02'
+ri.date_due = '2015-04-30'
+ri.date_in = None
+ri.discount_percent = '0.00'
+ri.rental_product = hmod.Rental_Product.objects.get(serial_number='0006')
+ri.renter = hmod.Users.objects.get(username='Spencer')
+ri.rentalid = '3'
 ri.save()
 
 f = hmod.Fee()

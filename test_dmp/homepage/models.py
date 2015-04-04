@@ -19,11 +19,11 @@ class Users(AbstractUser):
     #is_active boolean
     #date_joined
     #objects
-    address1 = models.TextField(max_length=90)
-    address2 = models.TextField(max_length=50)
-    city = models.TextField(max_length=30)
-    state = models.TextField(max_length=2)
-    zip = models.TextField(max_length=13)
+    address1 = models.TextField(max_length=90, null=True, blank=True)
+    address2 = models.TextField(max_length=50, null=True, blank=True)
+    city = models.TextField(max_length=30, null=True, blank=True)
+    state = models.TextField(max_length=2, null=True, blank=True)
+    zip = models.TextField(max_length=13, null=True, blank=True)
     security_question = models.TextField(null=True, blank=True)
     security_answer = models.TextField(null=True, blank=True)
     reset_code = models.TextField(null=True, blank=True)
@@ -164,6 +164,7 @@ class Rented_Item(Line_Item):
     discount_percent = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     rental_product = models.ForeignKey(Rental_Product, related_name='+', blank=True, null=True)
     renter = models.ForeignKey(Users, blank=True, null=True)
+    rentalid = models.IntegerField()
 
     def __str__(self):
         return self.amount
