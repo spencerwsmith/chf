@@ -13,7 +13,7 @@ You'll want to run this code in your is_valid() if statement for your login form
 username = 'Spencer@colheritagefoundation.local'
 pw = 'spencer24'
 
-s = Server('colheritagefoundation.info', port=8889, get_info=GET_ALL_INFO)
+s = Server('colheritagefoundation.info', port=8484, get_info=GET_ALL_INFO)
 
 c = Connection(s, auto_bind=True, client_strategy=STRATEGY_SYNC, user=username, password=pw, authentication=AUTH_SIMPLE)
 

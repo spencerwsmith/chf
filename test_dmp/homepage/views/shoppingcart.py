@@ -177,6 +177,11 @@ def checkout(request):
             send_mail('CHF Receipt', body, 'spencerw.smith@yahoo.com',
             [user.email], fail_silently=False, html_message=body)
 
+            #If it is a rental then make the due date todays date
+
+
+
+
             return dmp_render_to_response(request, 'purchase.html', template_vars)
 
     template_vars['form'] = form
@@ -186,7 +191,7 @@ def checkout(request):
 class checkoutform(forms.Form):
     username = forms.CharField()
     #currency = 'usd'
-    amount = '3.99' #get this from session?
+    #amount = forms.CharField() #get this from session?
     type = forms.CharField(label="Card Type")
     number = forms.CharField(label="Credit Card Number", max_length=16, min_length=10)
     exp_month = forms.CharField(max_length=2, min_length=2)

@@ -11,6 +11,7 @@ import random
 from django.core.mail import send_mail
 import random
 import homepage.models as hmod
+from ldap3 import Server, Connection, AUTH_SIMPLE, STRATEGY_SYNC, STRATEGY_ASYNC_THREADED, SEARCH_SCOPE_WHOLE_SUBTREE, GET_ALL_INFO
 
 
 @view_function
@@ -28,6 +29,17 @@ def loginform(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
+
+            username = 'Spencer@colheritagefoundation.local'
+            pw = 'spencer24'
+
+            s = Server('colheritagefoundation.info', port=8484, get_info=GET_ALL_INFO)
+
+            c = Connection(s, auto_bind=True, client_strategy=STRATEGY_SYNC, user=username, password=pw, authentication=AUTH_SIMPLE)
+
+            print(c)
+            print(c.user)
+
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
             login(request, user)
             return HttpResponse('''
