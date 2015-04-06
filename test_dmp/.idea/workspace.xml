@@ -658,7 +658,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428351892023</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="4/3 Rental Return handling damages">
+      <created>1428352028129</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1428352028129</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -759,7 +765,8 @@
     <MESSAGE value="3/31 Add Rental to Cart Process" />
     <MESSAGE value="4/1 Checkout Process with REST" />
     <MESSAGE value="4/2 Email Receipt after checkout" />
-    <option name="LAST_COMMIT_MESSAGE" value="4/2 Email Receipt after checkout" />
+    <MESSAGE value="4/3 Rental Return handling damages" />
+    <option name="LAST_COMMIT_MESSAGE" value="4/3 Rental Return handling damages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
