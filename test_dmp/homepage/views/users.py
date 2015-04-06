@@ -14,7 +14,7 @@ from django.shortcuts import redirect
 
 
 templater = get_renderer('homepage')
-
+#
 ########################################################################################################################
 # View Users
 
