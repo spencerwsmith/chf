@@ -616,7 +616,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428350156196</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="3/26 Forgot Password w/email">
+      <created>1428350359081</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1428350359081</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -710,7 +716,8 @@
     <MESSAGE value="4/3 9pm" />
     <MESSAGE value="4/4" />
     <MESSAGE value="3/25 Send email from Python" />
-    <option name="LAST_COMMIT_MESSAGE" value="3/25 Send email from Python" />
+    <MESSAGE value="3/26 Forgot Password w/email" />
+    <option name="LAST_COMMIT_MESSAGE" value="3/26 Forgot Password w/email" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
