@@ -18,15 +18,15 @@
       <th>High Price</th>
       <th>Area</th>
   </tr>
-  %for saleitem in saleitems:
+  %for Expected_Sale_Item in saleitems:
     <tr>
-      <td> ${ saleitem.name }</td>
-      <td> ${ saleitem.description }</td>
-      <td> ${ saleitem.lowPrice }</td>
-      <td> ${ saleitem.highPrice }</td>
-      <td> ${ saleitem.area }</td>
+      <td> ${ Expected_Sale_Item.name }</td>
+      <td> ${ Expected_Sale_Item.description }</td>
+      <td> ${ Expected_Sale_Item.low_price }</td>
+      <td> ${ Expected_Sale_Item.high_price }</td>
+      <td> ${ Expected_Sale_Item.area }</td>
       <td>
-          <a href="/homepage/saleitems.edit/${ saleitem.id }/">Edit</a>
+          <a href="/homepage/saleitems.edit/${ Expected_Sale_Item.id }/">Edit</a>
       </td>
     </tr>
   %endfor

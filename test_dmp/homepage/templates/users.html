@@ -22,7 +22,7 @@
       <th>State</th>
       <th>ZIP</th>
       <th>Security Question</th>
-      <th>Security Answer</th>
+
   </tr>
   %for user in users:
     <tr>
@@ -36,7 +36,7 @@
       <td> ${ user.state }</td>
       <td> ${ user.zip }</td>
       <td> ${ user.security_question }</td>
-      <td> ${ user.security_answer }</td>
+
       <td>
           <a href="/homepage/users.edit/${ user.id }/">Edit</a>
       </td>

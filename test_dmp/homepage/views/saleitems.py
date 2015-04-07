@@ -21,7 +21,7 @@ templater = get_renderer('homepage')
 def process_request(request):
     params = {}
 
-    params['saleitems'] = hmod.SaleItem.objects.all()
+    params['saleitems'] = hmod.Expected_Sale_Item.objects.all()
 
     return templater.render_to_response(request, 'saleitems.html', params)
 
@@ -33,7 +33,7 @@ def process_request(request):
 @permission_required('homepage.add_saleitem')
 def create(request):
     '''Creates a new sale item'''
-    saleitem = hmod.SaleItem()
+    saleitem = hmod.Expected_Sale_Item()
     saleitem.name = ''
     saleitem.description = ''
     saleitem.lowPrice = '0.00'
@@ -53,8 +53,8 @@ def edit(request):
     params = {}
 
     try:
-        saleitem = hmod.SaleItem.objects.get(id=request.urlparams[0])
-    except hmod.SaleItem.DoesNotExist:
+        saleitem = hmod.Expected_Sale_Item.objects.get(id=request.urlparams[0])
+    except hmod.Expected_Sale_Item.DoesNotExist:
         return HttpResponseRedirect('/homepage/saleitems/')
 
     form = SaleItemEditForm(initial={
@@ -107,8 +107,8 @@ class SaleItemEditForm(forms.Form):
 @permission_required('homepage.delete_saleitem')
 def delete(request):
     try:
-        saleitem = hmod.SaleItem.objects.get(id=request.urlparams[0])
-    except hmod.SaleItem.DoesNotExist:
+        saleitem = hmod.Expected_Sale_Item.objects.get(id=request.urlparams[0])
+    except hmod.Expected_Sale_Item.DoesNotExist:
         return HttpResponseRedirect('/homepage/saleitems/')
 
     saleitem.delete()
