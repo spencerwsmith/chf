@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428381753.938913
+_modified_time = 1428435655.585375
 _enable_loop = True
 _template_filename = 'C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
@@ -47,7 +47,7 @@ def render_body(context,**pageargs):
         __M_writer('\r\n\r\n        </div>\r\n</nav>\r\n\r\n<div class="row">\r\n    <div class="col-md-2">\r\n        <ul class="nav nav-pills nav-stacked">\r\n')
         if request.user.is_authenticated():
             __M_writer('        <div class="dropdown">\r\n        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">\r\n           Edit\r\n            <span class="caret"></span>\r\n        </button>\r\n        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/users" class="glyphicon glyphicon-user"> Users</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/agents" class="glyphicon glyphicon-star"> Agents</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/roles" class="glyphicon glyphicon-star-empty"> Roles</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/events" class="glyphicon glyphicon-bullhorn"> Events</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/product" class="glyphicon glyphicon-gift"> Products</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/saleitems" class="glyphicon glyphicon-shopping-cart"> SaleItems</a>\r\n            </ul>\r\n        </div>\r\n')
-        __M_writer('            <li role="presentation"><a href="http://localhost:8000/homepage/productcatalog" class="glyphicon glyphicon-gift"> Products Available</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/productlist" class="glyphicon glyphicon-gift"> Product List</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/festivals" class="glyphicon glyphicon-leaf"> Festivals</a>\r\n')
+        __M_writer('            <li role="presentation"><a href="http://localhost:8000/homepage/productcatalog" class="glyphicon glyphicon-gift"> Products Available</a>\r\n            <!--<li role="presentation"><a href="http://localhost:8000/homepage/productlist" class="glyphicon glyphicon-gift"> Product List</a>-->\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/festivals" class="glyphicon glyphicon-leaf"> Festivals</a>\r\n')
         if request.user.is_authenticated():
             __M_writer('            <li role="presentation"><a href="http://localhost:8000/homepage/myaccount" class="glyphicon glyphicon-user"> My Account</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/batchprocess" class="glyphicon glyphicon-exclamation-sign"> Overdue Rentals</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/rentalreturn" class="glyphicon glyphicon-random"> Rental Return</a>\r\n')
         __M_writer('\r\n        </ul>\r\n     </div>\r\n\r\n\r\n    <div class="col-md-10">\r\n        ')
