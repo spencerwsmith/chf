@@ -138,7 +138,7 @@ class UserEditForm(forms.Form):
     zip = forms.CharField(label="ZIP Code", required=True, max_length=10)
     security_question = forms.CharField(label="Security Question", required=True, max_length=80)
     security_answer = forms.CharField(label="Security Answer", required=True, max_length=80)
-    '''groups = forms.ModelMultipleChoiceField(queryset=groupChoice)'''
+    groups = forms.ModelMultipleChoiceField(queryset=groupChoice)
 
     def clean_username(self):
         if len(self.cleaned_data['username']) < 5:

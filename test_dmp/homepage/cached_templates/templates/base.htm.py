@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428435655.585375
+_modified_time = 1428472889.913952
 _enable_loop = True
 _template_filename = 'C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
@@ -19,11 +19,11 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        request = context.get('request', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         self = context.get('self', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n')
@@ -44,9 +44,9 @@ def render_body(context,**pageargs):
             __M_writer('                <li role="presentation"><a href="http://localhost:8000/homepage/shoppingcart.checkout/" class="glyphicon glyphicon-tags"> Checkout</a>\r\n                <li role="presentation"><a id="show_logout_dialog"> Logout</a>\r\n                <li role="presentation"><a id="cart"> Shopping Cart</a>\r\n')
         else:
             __M_writer('                <li role="presentation"><a id="show_login_dialog">Login</a>\r\n                <li role="presentation"><a href="http://localhost:8000/homepage/createaccount.create/" class="glyphicon glyphicon-plus-sign"> Create Account</a>\r\n')
-        __M_writer('\r\n\r\n        </div>\r\n</nav>\r\n\r\n<div class="row">\r\n    <div class="col-md-2">\r\n        <ul class="nav nav-pills nav-stacked">\r\n')
+        __M_writer('\r\n\r\n        </div>\r\n</nav>\r\n\r\n<!--% if request.user.is_staff:-->\r\n<div class="row">\r\n    <div class="col-md-2">\r\n        <ul class="nav nav-pills nav-stacked">\r\n')
         if request.user.is_authenticated():
-            __M_writer('        <div class="dropdown">\r\n        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">\r\n           Edit\r\n            <span class="caret"></span>\r\n        </button>\r\n        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/users" class="glyphicon glyphicon-user"> Users</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/agents" class="glyphicon glyphicon-star"> Agents</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/roles" class="glyphicon glyphicon-star-empty"> Roles</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/events" class="glyphicon glyphicon-bullhorn"> Events</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/product" class="glyphicon glyphicon-gift"> Products</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/saleitems" class="glyphicon glyphicon-shopping-cart"> SaleItems</a>\r\n            </ul>\r\n        </div>\r\n')
+            __M_writer('\r\n            <div class="dropdown">\r\n            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">\r\n             Edit\r\n                <span class="caret"></span>\r\n            </button>\r\n            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">\r\n                <li role="presentation"><a href="http://localhost:8000/homepage/users" class="glyphicon glyphicon-user"> Users</a>\r\n                <li role="presentation"><a href="http://localhost:8000/homepage/agents" class="glyphicon glyphicon-star"> Agents</a>\r\n                <li role="presentation"><a href="http://localhost:8000/homepage/roles" class="glyphicon glyphicon-star-empty"> Roles</a>\r\n                <li role="presentation"><a href="http://localhost:8000/homepage/events" class="glyphicon glyphicon-bullhorn"> Events</a>\r\n                <li role="presentation"><a href="http://localhost:8000/homepage/product" class="glyphicon glyphicon-gift"> Products</a>\r\n                <li role="presentation"><a href="http://localhost:8000/homepage/saleitems" class="glyphicon glyphicon-shopping-cart"> SaleItems</a>\r\n                </ul>\r\n            </div>\r\n<!--%endif-->\r\n')
         __M_writer('            <li role="presentation"><a href="http://localhost:8000/homepage/productcatalog" class="glyphicon glyphicon-gift"> Products Available</a>\r\n            <!--<li role="presentation"><a href="http://localhost:8000/homepage/productlist" class="glyphicon glyphicon-gift"> Product List</a>-->\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/festivals" class="glyphicon glyphicon-leaf"> Festivals</a>\r\n')
         if request.user.is_authenticated():
             __M_writer('            <li role="presentation"><a href="http://localhost:8000/homepage/myaccount" class="glyphicon glyphicon-user"> My Account</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/batchprocess" class="glyphicon glyphicon-exclamation-sign"> Overdue Rentals</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/rentalreturn" class="glyphicon glyphicon-random"> Rental Return</a>\r\n')
@@ -76,6 +76,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"65": 95, "71": 95, "77": 71, "16": 4, "18": 0, "28": 2, "29": 4, "30": 5, "34": 5, "35": 16, "36": 20, "37": 20, "38": 22, "39": 22, "40": 32, "41": 32, "42": 32, "43": 49, "44": 50, "45": 53, "46": 54, "47": 57, "48": 65, "49": 66, "50": 81, "51": 84, "52": 85, "53": 89, "58": 107, "59": 114}, "uri": "base.htm", "source_encoding": "ascii", "filename": "C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/base.htm"}
+{"filename": "C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/base.htm", "line_map": {"65": 98, "71": 98, "77": 71, "16": 4, "18": 0, "28": 2, "29": 4, "30": 5, "34": 5, "35": 16, "36": 20, "37": 20, "38": 22, "39": 22, "40": 32, "41": 32, "42": 32, "43": 49, "44": 50, "45": 53, "46": 54, "47": 57, "48": 66, "49": 67, "50": 84, "51": 87, "52": 88, "53": 92, "58": 110, "59": 117}, "uri": "base.htm", "source_encoding": "ascii"}
 __M_END_METADATA
 """

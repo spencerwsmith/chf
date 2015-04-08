@@ -3,42 +3,35 @@
 <title>Rental Return</title>
 
 <%block name="content">
-
-<div class="row">
-<div class="col-md-6">
-<form method="POST">
-   <table>
-    ${ form }
-   </table>
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-
-  </form>
-</div>
-
-<div class="col-md-6">
-    <h2>Rentals Currently Out:</h2>
+<form action="/homepage/rentalreturn/" method="POST">
+    <h3>Rentals Currently Out:</h3>
     <table class="table-hover">
-
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>Renter:&nbsp;</td>
+            <td>Rental ID:&nbsp;&nbsp;</td>
+            <td>Product:&nbsp;</td>
+            <td>Amount:&nbsp;</td>
+            <td>Date Out:&nbsp;</td>
+            <td>Date Due:&nbsp;</td>
+        </tr>
     % for Rented_Item in rentalsout:
+
       <tr>
-          <th>Renter: ${ Rented_Item.renter }</th>
-          <th>Rental ID: ${ Rented_Item.rentalid }</th>
-          <th>Product: ${ Rented_Item.rental_product }</th>
-          <th>Amount: ${ Rented_Item.amount }</th>
-          <th>Date Out: ${ Rented_Item.date_out }</th>
-          <th>Date Due: ${ Rented_Item.date_due }</th>
+          <th><button type="submit" class="btn btn-warning">Return</button></th>
+          <th>&nbsp;</th>
+          <th>${ Rented_Item.renter }&nbsp;</th>
+          <th>${ Rented_Item.rentalid }&nbsp;</th>
+          <th>${ Rented_Item.rental_product }&nbsp;</th>
+          <th>${ Rented_Item.amount }&nbsp;</th>
+          <th>${ Rented_Item.date_out }&nbsp;</th>
+          <th>${ Rented_Item.date_due }&nbsp;</th>
           <th></th>
       </tr>
     % endfor
 
     </table>
-
-
-</div>
-
-
-
-</div>
+</form>
 
 </%block>

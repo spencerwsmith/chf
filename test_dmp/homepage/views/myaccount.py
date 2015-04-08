@@ -62,6 +62,7 @@ def edit(request):
 
     try:
         user = hmod.Users.objects.get(id=request.urlparams[0])
+        print(str(user.username))
     except hmod.Users.DoesNotExist:
         return HttpResponseRedirect('/homepage/index/')
 
@@ -142,6 +143,7 @@ def editaccount(request):
 
     try:
         user = hmod.Users.objects.get(id=request.urlparams[0])
+        print(str(user.username))
     except hmod.Users.DoesNotExist:
         return HttpResponseRedirect('/homepage/index/')
 

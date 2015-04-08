@@ -15,13 +15,41 @@ from django.core.mail import send_mail
 import datetime
 import random
 import requests
+import getpass
 
 
 @view_function
 def process_request(request):
     template_vars = {}
+    try:
+        user = hmod.Users.objects.get(id=request.urlparams[0])
+        print(str(user.username))
+    except hmod.Users.DoesNotExist:
+        return HttpResponseRedirect('/homepage/index/')
+    '''try:
+        user = getpass.getuser()       #hmod.Users.objects.get(id=request.urlparams[0])
+        print(str(user.username))
+    except hmod.Users.DoesNotExist:
+        return HttpResponseRedirect('/homepage/index/')'''
 
-    form = checkoutform()
+    form = checkoutform(initial={
+        'username': user.username,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'address1': user.address1,
+        'address2': user.address2,
+        'city': user.city,
+        'state': user.state,
+        'zip': user.zip,
+        'amount': '',
+        'type': '',
+        'number': '',
+        'exp_month': '',
+        'exp_year': '',
+        'cvc': ''
+
+    })
+
     if request.method == 'POST':
         form = checkoutform(request.POST)
         if form.is_valid():
@@ -35,6 +63,14 @@ def process_request(request):
                 'apiKey': API_KEY,
                 'currency': 'usd',
                 'amount': '5.99',
+                'username': form.cleaned_data['username'],
+                'first_name': form.cleaned_data['first_name'],
+                'last_name': form.cleaned_data['last_name'],
+                'address1': form.cleaned_data['address1'],
+                'address2': form.cleaned_data['address2'],
+                'city': form.cleaned_data['city'],
+                'state': form.cleaned_data['state'],
+                'zip': form.cleaned_data['zip'],
                 'type': form.cleaned_data['type'],
                 'number': form.cleaned_data['number'],
                 'exp_month': form.cleaned_data['exp_month'],
@@ -66,8 +102,16 @@ def process_request(request):
     return dmp_render_to_response(request, 'checkout.html', template_vars)
 
 
+
 class checkoutform(forms.Form):
-    username = forms.CharField()
+    username = forms.CharField(label="User Name")
+    first_name = forms.CharField(label="First Name", max_length=55)
+    last_name = forms.CharField(label="Last Name", max_length=55)
+    address1 = forms.CharField(label="Address Line 1", max_length=80)
+    address2 = forms.CharField(label="Address Line 2", max_length=80)
+    city = forms.CharField(label="City", max_length=40)
+    state = forms.CharField(label="St", max_length=14)
+    zip = forms.CharField(label="ZIP", max_length=11)
     #currency = 'usd'
     amount = '3.99' #get this from session?
     type = forms.CharField(label="Card Type")

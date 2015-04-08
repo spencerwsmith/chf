@@ -12,7 +12,7 @@ import random
 from django.core.mail import send_mail
 import datetime
 import random
-import requests
+import requests, getpass
 
 @view_function
 def process_request(request):
@@ -29,12 +29,16 @@ def process_request(request):
             <div class="cart-right">
                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> %s
                 <a href="/homepage/shoppingcart.remove?id=%s"><button class="btn btn-danger">Remove</button></a>
+
             </div>
         </div>
+    <a href="/homepage/shoppingcart.checkout/"><button class="btn btn-success">Checkout</button></a>
         ''' % (name, key, qty, "{:,}".format(price), key))
+
     html = "\n"
     html = html.join(rows)
     return HttpResponse(html)
+
 
 
 @view_function
@@ -119,13 +123,33 @@ class AddForm(forms.Form):
 def checkout(request):
     template_vars = {}
 
-    form = checkoutform()
+    use = getpass.getuser()
+    user = hmod.Users.objects.get(username=use)
+    print(str(user))
+    '''try:
+        user = hmod.Users.objects.get(id=request.urlparams[0])
+        print(str(user.username))
+    except hmod.Users.DoesNotExist:
+        return HttpResponseRedirect('/homepage/index/')'''
+
+    form = checkoutform(initial={
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'address1': user.address1,
+        'address2': user.address2,
+        'city': user.city,
+        'state': user.state,
+        'zip': user.zip
+
+
+    })
+
     if request.method == 'POST':
         form = checkoutform(request.POST)
         if form.is_valid():
             API_URL = 'http://dithers.cs.byu.edu/iscore/api/v1/charges'
             API_KEY = '29b716033cf11e06afd6bdf91c6b38ed'
-            user = hmod.Users.objects.get(username=form.cleaned_data['username'])
+            #user = hmod.Users.objects.get(username=form.cleaned_data['username'])
 
             #Get shopping cart info to get total price and send receipt
             cart = request.session["shopping_cart"]
@@ -152,7 +176,14 @@ def checkout(request):
             r = requests.post(API_URL, data={
                 'apiKey': API_KEY,
                 'currency': 'usd',
-                'amount': totalprice,
+                'amount': '5.99',
+                'first_name': form.cleaned_data['first_name'],
+                'last_name': form.cleaned_data['last_name'],
+                'address1': form.cleaned_data['address1'],
+                'address2': form.cleaned_data['address2'],
+                'city': form.cleaned_data['city'],
+                'state': form.cleaned_data['state'],
+                'zip': form.cleaned_data['zip'],
                 'type': form.cleaned_data['type'],
                 'number': form.cleaned_data['number'],
                 'exp_month': form.cleaned_data['exp_month'],
@@ -172,15 +203,14 @@ def checkout(request):
                 print(resp.keys())
                 print(resp['ID'])
 
+            request.session['shopping_cart'] = {}
+
             body = dmp_render(request, 'email_receipt.html', template_vars)
 
             send_mail('CHF Receipt', body, 'spencerw.smith@yahoo.com',
             [user.email], fail_silently=False, html_message=body)
 
             #If it is a rental then make the due date todays date
-
-
-
 
             return dmp_render_to_response(request, 'purchase.html', template_vars)
 
@@ -189,7 +219,13 @@ def checkout(request):
 
 
 class checkoutform(forms.Form):
-    username = forms.CharField()
+    first_name = forms.CharField(label="First Name", max_length=55)
+    last_name = forms.CharField(label="Last Name", max_length=55)
+    address1 = forms.CharField(label="Address Line 1", max_length=80)
+    address2 = forms.CharField(label="Address Line 2", max_length=80)
+    city = forms.CharField(label="City", max_length=40)
+    state = forms.CharField(label="St", max_length=14)
+    zip = forms.CharField(label="ZIP", max_length=11)
     #currency = 'usd'
     #amount = forms.CharField() #get this from session?
     type = forms.CharField(label="Card Type")
@@ -201,7 +237,7 @@ class checkoutform(forms.Form):
     #description = 'Charge for cosmo@is411.byu.edu'
 
     def clean(self):
-        user = authenticate(username=self.cleaned_data.get('username'))
+        #user = authenticate(username=self.cleaned_data.get('username'))
 
         return self.cleaned_data
 

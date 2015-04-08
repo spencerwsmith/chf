@@ -14,81 +14,6 @@ from django.contrib.auth.models import Group, Permission, ContentType
 from django.core.mail import send_mail
 import random
 import requests
-import datetime, cgi
-
-
-@view_function
-def process_request(request):
-    template_vars = {}
-
-    rentalsout = hmod.Rented_Item.objects.filter(date_in__isnull=True)
-    template_vars['rentalsout'] = rentalsout
-
-
-
-
-    form = rrform()
-    if request.method == 'POST':
-
-
-
-        #Rented_Item = hmod.Rented_Item.objects.get(rentalid=Rental_Item.rentalid)
-        print(hmod.Rented_Item.rentalid)
-
-
-
-
-        template_vars['form'] = form
-
-        return dmp_render_to_response(request, 'return.html', template_vars)
-
-
-
-    template_vars['form'] = form
-    return dmp_render_to_response(request, 'rentalreturn.html', template_vars)
-
-
-#allGroups = Users.groups.all()
-'''groups = forms.ModelMultipleChoiceField(queryset=groupChoice)'''
-allUsers = hmod.Users.objects.all()
-allProducts = hmod.Rental_Product.objects.all()
-class rrform(forms.Form):
-    renter = forms.CharField(label="Renter's Username")
-    rentalid = forms.CharField(label="Rental ID")
-    product_name = forms.CharField(label="Product Name")
-    sku = forms.CharField()
-    date_in = forms.DateField(label='Date In (MM/DD/YY)')
-    damages = forms.CharField(label="Damages Charge")
-    description = forms.CharField(label="Description of Damages")
-    type = forms.CharField(label="Card Type")
-    number = forms.CharField(label="Credit Card Number", max_length=16, min_length=10)
-    exp_month = forms.CharField(max_length=2, min_length=2)
-    exp_year = forms.CharField(max_length=2, min_length=2)
-    cvc = forms.CharField(max_length=4, label="CVC", min_length=3)
-
-
-
-
-
-
-'''
-
-__author__ = 'Spencer'
-from django.conf import settings
-from django import forms
-from .. import dmp_render, dmp_render_to_response
-from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.http import HttpRequest
-from django_mako_plus.controller import view_function
-from django.contrib.auth import authenticate, login
-import homepage.models as hmod
-from django_mako_plus.controller.router import get_renderer
-import random
-from django.contrib.auth.decorators import permission_required
-from django.contrib.auth.models import Group, Permission, ContentType
-from django.core.mail import send_mail
-import random
-import requests
 import datetime
 
 
@@ -101,9 +26,16 @@ def process_request(request):
     template_vars['rentalsout'] = rentalsout
 
 
+    form = rrform(initial={
+        'renter': renter,
+        'rentalid': hmod.Rented_Item.rentalid,
+        'product_name': hmod.Rented_Item.product_name,
+        'sku': hmod.Rented_Item.sku,
+        'date_in': datetime.date.today(),
+        'damages': '',
+        'description': ''
+    })
 
-
-    form = rrform()
     if request.method == 'POST':
         form = rrform(request.POST)
         if form.is_valid():
@@ -171,7 +103,7 @@ def process_request(request):
 
 
 #allGroups = Users.groups.all()
-groups = forms.ModelMultipleChoiceField(queryset=groupChoice)
+'''groups = forms.ModelMultipleChoiceField(queryset=groupChoice)'''
 allUsers = hmod.Users.objects.all()
 allProducts = hmod.Rental_Product.objects.all()
 class rrform(forms.Form):
@@ -188,4 +120,3 @@ class rrform(forms.Form):
     exp_year = forms.CharField(max_length=2, min_length=2)
     cvc = forms.CharField(max_length=4, label="CVC", min_length=3)
 
-'''

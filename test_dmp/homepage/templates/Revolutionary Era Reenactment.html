@@ -30,10 +30,11 @@
                     <h5>An expected sale item at ${ Area.aname }:</h5>
                     %for Expected_Sale_Item in esi:
                         % if Area.aname == Expected_Sale_Item.area.aname:
-
+                                <a href="http://localhost:8000/homepage/productcatalog/">
                                 <img src="${ STATIC_URL }homepage/media/${ Expected_Sale_Item.name }.jpg/"/>
                                 <div>${ Expected_Sale_Item.name }</div>
                                 <div>${ Expected_Sale_Item.description }</div>
+                                    </a>
                                 <div>Low Estimate: ${ Expected_Sale_Item.low_price }</div>
                                 <div>High Estimate: ${ Expected_Sale_Item.high_price }</div>
 

@@ -59,24 +59,27 @@
         </div>
 </nav>
 
+<!--% if request.user.is_staff:-->
 <div class="row">
     <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked">
         %if request.user.is_authenticated():
-        <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-           Edit
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a href="http://localhost:8000/homepage/users" class="glyphicon glyphicon-user"> Users</a>
-            <li role="presentation"><a href="http://localhost:8000/homepage/agents" class="glyphicon glyphicon-star"> Agents</a>
-            <li role="presentation"><a href="http://localhost:8000/homepage/roles" class="glyphicon glyphicon-star-empty"> Roles</a>
-            <li role="presentation"><a href="http://localhost:8000/homepage/events" class="glyphicon glyphicon-bullhorn"> Events</a>
-            <li role="presentation"><a href="http://localhost:8000/homepage/product" class="glyphicon glyphicon-gift"> Products</a>
-            <li role="presentation"><a href="http://localhost:8000/homepage/saleitems" class="glyphicon glyphicon-shopping-cart"> SaleItems</a>
-            </ul>
-        </div>
+
+            <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+             Edit
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a href="http://localhost:8000/homepage/users" class="glyphicon glyphicon-user"> Users</a>
+                <li role="presentation"><a href="http://localhost:8000/homepage/agents" class="glyphicon glyphicon-star"> Agents</a>
+                <li role="presentation"><a href="http://localhost:8000/homepage/roles" class="glyphicon glyphicon-star-empty"> Roles</a>
+                <li role="presentation"><a href="http://localhost:8000/homepage/events" class="glyphicon glyphicon-bullhorn"> Events</a>
+                <li role="presentation"><a href="http://localhost:8000/homepage/product" class="glyphicon glyphicon-gift"> Products</a>
+                <li role="presentation"><a href="http://localhost:8000/homepage/saleitems" class="glyphicon glyphicon-shopping-cart"> SaleItems</a>
+                </ul>
+            </div>
+<!--%endif-->
         %endif
             <li role="presentation"><a href="http://localhost:8000/homepage/productcatalog" class="glyphicon glyphicon-gift"> Products Available</a>
             <!--<li role="presentation"><a href="http://localhost:8000/homepage/productlist" class="glyphicon glyphicon-gift"> Product List</a>-->
