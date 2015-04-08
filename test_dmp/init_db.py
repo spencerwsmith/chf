@@ -549,7 +549,7 @@ sai.save()
 
 rp = hmod.Rental_Product()
 rp.name = '2 button vest'
-rp.price = '40.99'
+rp.price = '2.59'
 rp.description = 'A Paul Revere replica vest'
 rp.manufacturer = '4Fathers'
 rp.average_cost = '35.99'
@@ -582,7 +582,7 @@ rp.save()
 
 rp = hmod.Rental_Product()
 rp.name = 'pantaloons'
-rp.price = '38.99'
+rp.price = '2.90'
 rp.description = 'Revolutionary era pantaloons'
 rp.manufacturer = '4Fathers'
 rp.average_cost = '33.99'

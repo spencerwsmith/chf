@@ -27,7 +27,7 @@ def process_request(request):
 
 
     form = rrform(initial={
-        'renter': renter,
+        'renter': Rented_Item.renter,
         'rentalid': hmod.Rented_Item.rentalid,
         'product_name': hmod.Rented_Item.product_name,
         'sku': hmod.Rented_Item.sku,
@@ -104,6 +104,15 @@ def process_request(request):
 
 #allGroups = Users.groups.all()
 '''groups = forms.ModelMultipleChoiceField(queryset=groupChoice)'''
+Card_Choices = (
+    (Visa, "Visa"),
+    (MasterCard, "MasterCard"),
+    (Amex, "Amex")
+)
+
+template_vars = {}
+cardtypes = {'Visa', 'MasterCard', 'Amex'}
+template_vars['cards'] = ['Visa', 'MasterCard', 'Amex']
 allUsers = hmod.Users.objects.all()
 allProducts = hmod.Rental_Product.objects.all()
 class rrform(forms.Form):
@@ -114,8 +123,8 @@ class rrform(forms.Form):
     date_in = forms.DateField(label='Date In (MM/DD/YY)')
     damages = forms.CharField(label="Damages Charge")
     description = forms.CharField(label="Description of Damages")
-    type = forms.CharField(label="Card Type")
-    number = forms.CharField(label="Credit Card Number", max_length=16, min_length=10)
+    type = models.CharField(choices=Card_Choices, label="Card Type")
+    number = forms.CharField(label="Credit Card ggggNumber", max_length=16, min_length=10)
     exp_month = forms.CharField(max_length=2, min_length=2)
     exp_year = forms.CharField(max_length=2, min_length=2)
     cvc = forms.CharField(max_length=4, label="CVC", min_length=3)

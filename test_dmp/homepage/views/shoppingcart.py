@@ -16,25 +16,52 @@ import requests, getpass
 
 @view_function
 def process_request(request):
+    params = []
+
+    user = request.user
+    print(str(user.username))
+    print(str(user.id))
+
     rows = []
     cart = request.session["shopping_cart"]
     for key, qty in cart.items():
         product = hmod.Product.objects.get(id=key)
         price = product.price * qty
         name = product.name
-        rows.append('''
-        <div class='cart-item'>
-            <div class="cart-left">%s</div>
-            <div class='cart-middle'>Quantity: <input class='product-quantity' name="%s" type='number' required max='200' min='1' value='%d'/></div>
-            <div class="cart-right">
-                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> %s
-                <a href="/homepage/shoppingcart.remove?id=%s"><button class="btn btn-danger">Remove</button></a>
 
+        if product.isrental is not True:
+            rows.append('''
+            <div class='cart-item'>
+                <div style="color:green">Purchase:</div>
+                <div class="cart-left">%s</div>
+                <div class='cart-middle'>Quantity: <input class='product-quantity' name="%s" type='number' required max='200' min='1' value='%d'/></div>
+                <div class="cart-right">
+                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> %s
+                    <a href ="/homepage/shoppingcart.remove?id=%s"><button class="btn btn-danger">Remove</button></a>
+
+                    </a>
+
+                </div>
+                <br>
             </div>
-        </div>
-    <a href="/homepage/shoppingcart.checkout/"><button class="btn btn-success">Checkout</button></a>
-        ''' % (name, key, qty, "{:,}".format(price), key))
+            ''' % (name, key, qty, "{:,}".format(price), key))
+        else:
+            rows.append('''
+            <div class='cart-item'>
+                <div style="color:green">Rental:</div>
+                <div class="cart-left">%s</div>
+                <div class='cart-middle'>Days: <input class='product-quantity' name="%s" type='number' required max='200' min='1' value='%d'/></div>
+                <div class="cart-right">
+                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> %s
+                    <a href ="/homepage/shoppingcart.remove?id=%s"><button class="btn btn-danger">Remove</button></a>
 
+                    </a>
+
+                </div>
+                <br>
+            </div>
+            ''' % (name, key, qty, "{:,}".format(price), key))
+    rows.append('''<div align='right'><a href="/homepage/shoppingcart.checkout/%d/"class="btn btn-default">Checkout</a></div> ''' % user.id)
     html = "\n"
     html = html.join(rows)
     return HttpResponse(html)
@@ -49,6 +76,7 @@ def add(request):
     cart = request.session["shopping_cart"]
     pid = request.urlparams[0]
     qty = request.urlparams[1]
+    days = request.urlparams[2]
     if pid in cart:
         cart[pid] += int(qty)
     else:
@@ -123,14 +151,14 @@ class AddForm(forms.Form):
 def checkout(request):
     template_vars = {}
 
-    use = getpass.getuser()
-    user = hmod.Users.objects.get(username=use)
-    print(str(user))
-    '''try:
+    print('before try except')
+
+    try:
+        print('before user =')
         user = hmod.Users.objects.get(id=request.urlparams[0])
-        print(str(user.username))
+        print('after get user')
     except hmod.Users.DoesNotExist:
-        return HttpResponseRedirect('/homepage/index/')'''
+        return HttpResponseRedirect('/homepage/users/')
 
     form = checkoutform(initial={
         'first_name': user.first_name,
@@ -168,6 +196,24 @@ def checkout(request):
                 print(price)
                 template_vars['productlist'].append([name, price])
                 template_vars['pricelist'].append(price)
+
+                allrentals = hmod.Rented_Item.objects.all()
+                allrentals.count()
+                allrentals2 = allrentals.count()
+                print(allrentals2)
+
+                if product.isrental is not False:
+                    rental_product = hmod.Rental_Product.objects.get(name=product.name)
+                    rented_item = hmod.Rented_Item()
+                    rented_item.renter = user
+                    rented_item.rentalid = (allrentals2 + 1)
+                    rented_item.rental_product = rental_product
+                    rented_item.amount = product.price
+                    rented_item.date_out = datetime.date.today()
+                    rented_item.date_due = '2015-05-05'
+                    rented_item.date_in = None
+                    rented_item.save()
+
 
             #for loop to take out each product in productlist
             template_vars['tp'] = totalprice
@@ -218,17 +264,22 @@ def checkout(request):
     return dmp_render_to_response(request, 'checkout.html', template_vars)
 
 
+Card_Choices = (
+    ('Visa', "Visa"),
+    ('MasterCard', "MasterCard"),
+    ('Amex', "Amex")
+)
 class checkoutform(forms.Form):
     first_name = forms.CharField(label="First Name", max_length=55)
     last_name = forms.CharField(label="Last Name", max_length=55)
     address1 = forms.CharField(label="Address Line 1", max_length=80)
-    address2 = forms.CharField(label="Address Line 2", max_length=80)
+    address2 = forms.CharField(label="Address Line 2", max_length=80, required=False)
     city = forms.CharField(label="City", max_length=40)
     state = forms.CharField(label="St", max_length=14)
     zip = forms.CharField(label="ZIP", max_length=11)
     #currency = 'usd'
     #amount = forms.CharField() #get this from session?
-    type = forms.CharField(label="Card Type")
+    type = forms.MultipleChoiceField(choices=Card_Choices, label="Credit Type")
     number = forms.CharField(label="Credit Card Number", max_length=16, min_length=10)
     exp_month = forms.CharField(max_length=2, min_length=2)
     exp_year = forms.CharField(max_length=2, min_length=2)
@@ -240,6 +291,5 @@ class checkoutform(forms.Form):
         #user = authenticate(username=self.cleaned_data.get('username'))
 
         return self.cleaned_data
-
 
 

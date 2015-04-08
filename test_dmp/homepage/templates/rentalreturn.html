@@ -3,11 +3,11 @@
 <title>Rental Return</title>
 
 <%block name="content">
-<form action="/homepage/rentalreturn/" method="POST">
+<form  method="POST">
     <h3>Rentals Currently Out:</h3>
     <table class="table-hover">
         <tr>
-            <td>&nbsp;</td>
+
             <td>&nbsp;</td>
             <td>Renter:&nbsp;</td>
             <td>Rental ID:&nbsp;&nbsp;</td>
@@ -17,9 +17,7 @@
             <td>Date Due:&nbsp;</td>
         </tr>
     % for Rented_Item in rentalsout:
-
       <tr>
-          <th><button type="submit" class="btn btn-warning">Return</button></th>
           <th>&nbsp;</th>
           <th>${ Rented_Item.renter }&nbsp;</th>
           <th>${ Rented_Item.rentalid }&nbsp;</th>
@@ -27,11 +25,18 @@
           <th>${ Rented_Item.amount }&nbsp;</th>
           <th>${ Rented_Item.date_out }&nbsp;</th>
           <th>${ Rented_Item.date_due }&nbsp;</th>
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          <th><a href="/homepage/rentalreturn.edit/${ Rented_Item.rentalid }/">Return</a></th>
+
           <th></th>
       </tr>
+
     % endfor
 
-    </table>
+
+
+
+
 </form>
 
 </%block>

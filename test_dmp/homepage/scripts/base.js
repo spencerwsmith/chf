@@ -49,6 +49,7 @@ $(function(){
         var id = $(this).id;
         var qty = $("#qty"+pid).val(); //.val
 
+
         $.loadmodal({
             url: '/homepage/shoppingcart.add/' + pid + "/" + qty,
             title: 'Shopping Cart'
@@ -63,6 +64,17 @@ $(function(){
 $(function(){
 
     $('#cart').on('click', function() {
+        $.loadmodal({
+            url: '/homepage/shoppingcart/',
+            title: 'Shopping Cart'
+        });
+    });//click
+
+});//ready
+
+$(function(){
+
+    $('#return').on('click', function() {
         $.loadmodal({
             url: '/homepage/shoppingcart/',
             title: 'Shopping Cart'

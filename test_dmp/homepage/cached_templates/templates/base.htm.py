@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428472889.913952
+_modified_time = 1428517152.276393
 _enable_loop = True
 _template_filename = 'C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
@@ -20,10 +20,10 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         request = context.get('request', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n')
@@ -41,7 +41,7 @@ def render_body(context,**pageargs):
         __M_writer(str( static_renderer.get_template_css(request, context)  ))
         __M_writer('\r\n  \r\n  </head>\r\n\r\n\r\n  <body>\r\n\r\n\r\n<nav class="navbar navbar-inverse">\r\n\r\n      <h5 class="navbar-text">Colonial Heritage Foundation</h5><br><br><br>\r\n\r\n        <div name = "links" class="nav nav-pills nav-justified">\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/index" class="glyphicon glyphicon-home"> Home</a>\r\n            <li role="presentation"> <a href="http://localhost:8000/homepage/contact" class="glyphicon glyphicon-envelope"> Contact</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/terms" class="glyphicon glyphicon-book"> Terms</a>\r\n            <li role="presentation"><a href="http://localhost:8000/homepage/about" class="glyphicon glyphicon-list-alt"> About</a>\r\n')
         if request.user.is_authenticated():
-            __M_writer('                <li role="presentation"><a href="http://localhost:8000/homepage/shoppingcart.checkout/" class="glyphicon glyphicon-tags"> Checkout</a>\r\n                <li role="presentation"><a id="show_logout_dialog"> Logout</a>\r\n                <li role="presentation"><a id="cart"> Shopping Cart</a>\r\n')
+            __M_writer('\r\n                <li role="presentation"><a id="show_logout_dialog"> Logout</a>\r\n                <li role="presentation"><a id="cart"> Shopping Cart</a>\r\n')
         else:
             __M_writer('                <li role="presentation"><a id="show_login_dialog">Login</a>\r\n                <li role="presentation"><a href="http://localhost:8000/homepage/createaccount.create/" class="glyphicon glyphicon-plus-sign"> Create Account</a>\r\n')
         __M_writer('\r\n\r\n        </div>\r\n</nav>\r\n\r\n<!--% if request.user.is_staff:-->\r\n<div class="row">\r\n    <div class="col-md-2">\r\n        <ul class="nav nav-pills nav-stacked">\r\n')
@@ -76,6 +76,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/base.htm", "line_map": {"65": 98, "71": 98, "77": 71, "16": 4, "18": 0, "28": 2, "29": 4, "30": 5, "34": 5, "35": 16, "36": 20, "37": 20, "38": 22, "39": 22, "40": 32, "41": 32, "42": 32, "43": 49, "44": 50, "45": 53, "46": 54, "47": 57, "48": 66, "49": 67, "50": 84, "51": 87, "52": 88, "53": 92, "58": 110, "59": 117}, "uri": "base.htm", "source_encoding": "ascii"}
+{"source_encoding": "ascii", "filename": "C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/base.htm", "line_map": {"65": 98, "71": 98, "77": 71, "16": 4, "18": 0, "28": 2, "29": 4, "30": 5, "34": 5, "35": 16, "36": 20, "37": 20, "38": 22, "39": 22, "40": 32, "41": 32, "42": 32, "43": 49, "44": 50, "45": 53, "46": 54, "47": 57, "48": 66, "49": 67, "50": 84, "51": 87, "52": 88, "53": 92, "58": 110, "59": 117}, "uri": "base.htm"}
 __M_END_METADATA
 """

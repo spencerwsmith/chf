@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428462561.895223
+_modified_time = 1428533581.763106
 _enable_loop = True
 _template_filename = 'C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/productcatalog.html'
 _template_uri = 'productcatalog.html'
@@ -28,18 +28,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         catalog_items = context.get('catalog_items', UNDEFINED)
+        rentals = context.get('rentals', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        rentals = context.get('rentals', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n\r\n')
+        __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
 
-        __M_writer('\r\n\r\n')
+        __M_writer('\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -48,49 +48,51 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         catalog_items = context.get('catalog_items', UNDEFINED)
+        rentals = context.get('rentals', UNDEFINED)
         def content():
             return render_content(context)
-        rentals = context.get('rentals', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n\r\n<title>Products Available</title>\r\n<h2>Items for Purchase:</h2>\r\n')
+        __M_writer('\r\n\r\n<title>Products Available</title>\r\n<h6>Items for Purchase</h6>\r\n<table id="rentals_table" class="table table-striped table-bordered">\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Photo</th>\r\n        <th>Price</th>\r\n        <th>Description</th>\r\n        <th>Quantity</th>\r\n        <th>Action</th>\r\n    </tr>\r\n')
         for Product in catalog_items:
-            __M_writer('        <a href="/homepage/')
-            __M_writer(str( Product.id ))
-            __M_writer('/">\r\n        <div class="item_container text-center text-muted">\r\n            <img src="')
+            __M_writer('  <tr>\r\n\r\n        <td><a href = "/homepage/')
+            __M_writer(str(Product.id ))
+            __M_writer('/">')
+            __M_writer(str(Product.name))
+            __M_writer('</a></td>\r\n    <td><center><img src="')
             __M_writer(str( STATIC_URL ))
             __M_writer('homepage/media/')
-            __M_writer(str( Product.name ))
-            __M_writer('.jpg/"/>\r\n            <div>')
-            __M_writer(str( Product.name ))
-            __M_writer('</div>\r\n            <div>$')
+            __M_writer(str( Product.name))
+            __M_writer('.jpg/" height="150" /></center></td>\r\n    <td>')
             __M_writer(str( Product.price ))
-            __M_writer('</div>\r\n            <div>')
+            __M_writer('</td>\r\n    <td>')
             __M_writer(str( Product.description ))
-            __M_writer('</div>\r\n            </a>\r\n            <div><input id="qty')
+            __M_writer('</td>\r\n    <td><input id="qty')
             __M_writer(str( Product.id ))
-            __M_writer('"type = "number" name="Quantity" min="1" value="1" max="400"/></div>\r\n            <div class="text-right">\r\n                <button data-pid="')
+            __M_writer('"type = "number" name="Quantity" min="1" value="1" max="400"/></td>\r\n    <td><button data-pid="')
             __M_writer(str( Product.id ))
-            __M_writer('" class="add_button btn btn-xs btn-warning">Add to Cart</button>\r\n            </div>\r\n        </div>\r\n\r\n')
-        __M_writer('<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<div class="item_container text-center text-muted">\r\n    <h2>The following products are available for rental</h2>\r\n')
-        for Rental_Product in rentals:
-            __M_writer('        <div class="item_container text-center text-muted">\r\n            <img src="')
+            __M_writer('" class="add_button btn btn-xs btn-warning">Add to Cart</button></td>\r\n  </tr>\r\n')
+        __M_writer('    </table>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n<h6>Items for Rental</h6>\r\n<table id="rentals_table" class="table table-striped table-bordered">\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Photo</th>\r\n        <th>Price Per Day</th>\r\n        <th>Replacement Price</th>\r\n        <th>Days</th>\r\n        <th>Action</th>\r\n    </tr>\r\n')
+        for rental in rentals:
+            __M_writer('  <tr>\r\n\r\n    <td><a href = "/homepage/rentals.detail/')
+            __M_writer(str( rental.id ))
+            __M_writer('/">')
+            __M_writer(str(rental.name))
+            __M_writer('</a></td>\r\n    <td><center><img src="')
             __M_writer(str( STATIC_URL ))
             __M_writer('homepage/media/')
-            __M_writer(str( Rental_Product.name ))
-            __M_writer('.jpg/"/>\r\n            <a href="/homepage/productlist/">\r\n            <div>')
-            __M_writer(str( Rental_Product.name ))
-            __M_writer('</div>\r\n            <div>$')
-            __M_writer(str( Rental_Product.price ))
-            __M_writer('</div>\r\n            <div>')
-            __M_writer(str( Rental_Product.description ))
-            __M_writer('</div>\r\n            </a>\r\n            <div><input id="qty')
-            __M_writer(str( Rental_Product.id ))
-            __M_writer('"type = "number" name="Quantity" min="1" value="1" max="400"/></div>\r\n            <div class="text-right">\r\n                <button data-pid="')
-            __M_writer(str( Rental_Product.id ))
-            __M_writer('" class="add_button btn btn-xs btn-warning">Add to Cart</button>\r\n            </div>\r\n        </div>\r\n        </a>\r\n')
-        __M_writer('\r\n</div>\r\n\r\n\r\n')
+            __M_writer(str( rental.name))
+            __M_writer('.jpg/" height="150" /></center></td>\r\n    <td>')
+            __M_writer(str(rental.price_per_day))
+            __M_writer(' </td>\r\n    <td>')
+            __M_writer(str(rental.replacement_price))
+            __M_writer(' </td>\r\n    <td><input id="qty')
+            __M_writer(str( rental.id ))
+            __M_writer('"type = "number" name = "qty" value ="1" min="1" max="400"/></td>\r\n    <td><button data-pid="')
+            __M_writer(str( rental.id ))
+            __M_writer('" class="add_button btn btn-xs btn-warning">Add to Cart</button></td>\r\n  </tr>\r\n')
+        __M_writer('</table>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -98,6 +100,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 12, "65": 12, "66": 13, "67": 13, "68": 14, "69": 14, "70": 15, "71": 15, "72": 17, "73": 17, "74": 19, "75": 19, "76": 24, "77": 32, "78": 33, "79": 34, "80": 34, "81": 34, "82": 34, "83": 36, "84": 36, "85": 37, "86": 37, "87": 38, "88": 38, "89": 40, "90": 40, "27": 0, "92": 42, "93": 47, "91": 42, "37": 1, "42": 51, "48": 4, "99": 93, "57": 4, "58": 9, "59": 10, "60": 10, "61": 10, "62": 12, "63": 12}, "uri": "productcatalog.html", "source_encoding": "ascii", "filename": "C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/productcatalog.html"}
+{"source_encoding": "ascii", "uri": "productcatalog.html", "filename": "C:\\Users\\Spencer\\Documents\\School\\CHF\\chf\\test_dmp\\homepage\\templates/productcatalog.html", "line_map": {"27": 0, "37": 1, "42": 57, "48": 3, "57": 3, "58": 16, "59": 17, "60": 19, "61": 19, "62": 19, "63": 19, "64": 20, "65": 20, "66": 20, "67": 20, "68": 21, "69": 21, "70": 22, "71": 22, "72": 23, "73": 23, "74": 24, "75": 24, "76": 27, "77": 45, "78": 46, "79": 48, "80": 48, "81": 48, "82": 48, "83": 49, "84": 49, "85": 49, "86": 49, "87": 50, "88": 50, "89": 51, "90": 51, "91": 52, "92": 52, "93": 53, "94": 53, "95": 56, "101": 95}}
 __M_END_METADATA
 """

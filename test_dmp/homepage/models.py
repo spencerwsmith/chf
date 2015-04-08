@@ -250,3 +250,11 @@ class Role(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Card_Choices(models.Model):
+    Card_Choices = (
+        ('Visa', "Visa"),
+        ('MasterCard', "MasterCard"),
+        ('Amex', "Amex")
+    )

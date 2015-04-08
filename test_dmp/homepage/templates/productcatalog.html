@@ -1,52 +1,68 @@
 <%inherit file="base.htm" />
 
-
 <%block name="content">
 
-
 <title>Products Available</title>
-<h2>Items for Purchase:</h2>
-    %for Product in catalog_items:
-        <a href="/homepage/${ Product.id }/">
-        <div class="item_container text-center text-muted">
-            <img src="${ STATIC_URL }homepage/media/${ Product.name }.jpg/"/>
-            <div>${ Product.name }</div>
-            <div>$${ Product.price }</div>
-            <div>${ Product.description }</div>
-        </a>
-            <div><input id="qty${ Product.id }"type = "number" name="Quantity" min="1" value="1" max="400"/></div>
-            <div class="text-right">
-                <button data-pid="${ Product.id }" class="add_button btn btn-xs btn-warning">Add to Cart</button>
-            </div>
-        </div>
+<h6>Items for Purchase</h6>
+<table id="rentals_table" class="table table-striped table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+%for Product in catalog_items:
+  <tr>
 
-    %endfor
+        <td><a href = "/homepage/${Product.id }/">${Product.name}</a></td>
+    <td><center><img src="${ STATIC_URL }homepage/media/${ Product.name}.jpg/" height="150" /></center></td>
+    <td>${ Product.price }</td>
+    <td>${ Product.description }</td>
+    <td><input id="qty${ Product.id }"type = "number" name="Quantity" min="1" value="1" max="400"/></td>
+    <td><button data-pid="${ Product.id }" class="add_button btn btn-xs btn-warning">Add to Cart</button></td>
+  </tr>
+%endfor
+    </table>
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
-<div class="item_container text-center text-muted">
-    <h2>The following products are available for rental</h2>
-    %for Rental_Product in rentals:
-        <div class="item_container text-center text-muted">
-            <img src="${ STATIC_URL }homepage/media/${ Rental_Product.name }.jpg/"/>
-            <a href="/homepage/productlist/">
-            <div>${ Rental_Product.name }</div>
-            <div>$${ Rental_Product.price }</div>
-            <div>${ Rental_Product.description }</div>
-            </a>
-            <div><input id="qty${ Rental_Product.id }"type = "number" name="Quantity" min="1" value="1" max="400"/></div>
-            <div class="text-right">
-                <button data-pid="${ Rental_Product.id }" class="add_button btn btn-xs btn-warning">Add to Cart</button>
-            </div>
-        </div>
-        </a>
-    %endfor
 
-</div>
+<h6>Items for Rental</h6>
+<table id="rentals_table" class="table table-striped table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Price Per Day</th>
+        <th>Replacement Price</th>
+        <th>Days</th>
+        <th>Action</th>
+    </tr>
+%for rental in rentals:
+  <tr>
 
-
+    <td><a href = "/homepage/rentals.detail/${ rental.id }/">${rental.name}</a></td>
+    <td><center><img src="${ STATIC_URL }homepage/media/${ rental.name}.jpg/" height="150" /></center></td>
+    <td>${rental.price_per_day} </td>
+    <td>${rental.replacement_price} </td>
+    <td><input id="qty${ rental.id }"type = "number" name = "qty" value ="1" min="1" max="400"/></td>
+    <td><button data-pid="${ rental.id }" class="add_button btn btn-xs btn-warning">Add to Cart</button></td>
+  </tr>
+%endfor
+</table>
 </%block>
+
+
+
+
+
+
+
+
+
+
 

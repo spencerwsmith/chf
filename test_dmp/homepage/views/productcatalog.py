@@ -15,13 +15,13 @@ from .. import dmp_render, dmp_render_to_response
 def process_request(request):
     template_vars = {}
 
-    product = hmod.Product.objects.get(id=1)
+    '''product = hmod.Product.objects.get(id=1)
     if 'shopping_cart' not in request.session:
         request.session['shopping_cart'] = {}
         if product.id not in request.session['shopping_cart']:
             request.session['shopping_cart'][product.id] = 1
         else:
-            request.session['shopping_cart'][product.id] += 1
+            request.session['shopping_cart'][product.id] += 1'''
 
     catalog_items = hmod.Product.objects.filter(isrental=False)
     rentals = hmod.Rental_Product.objects.all()

@@ -27,6 +27,8 @@ def process_request(request):
     for Rented_Item in overdueitems:
         ds = datetime.date.today() - Rented_Item.date_due
         dt = abs(ds.days)
+        print(ds)
+        print(dt)
 
         if dt >= 60:
             sixty = Rented_Item
@@ -45,8 +47,7 @@ def process_request(request):
 
 
     template_vars['overdueitems'] = overdueitems
-    print(ds)
-    print(dt)
+
 
 
     return dmp_render_to_response(request, 'batchprocess.html', template_vars)

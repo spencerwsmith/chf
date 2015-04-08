@@ -1,5 +1,5 @@
 __author__ = 'Spencer'
-__author__ = 'Spencer'
+
 from django.conf import settings
 from django import forms
 from django.http import HttpResponse, HttpResponseRedirect, Http404
@@ -10,6 +10,7 @@ from django_mako_plus.controller.router import get_renderer
 import random
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.models import Group, Permission, ContentType
+from django.contrib.auth import authenticate, login
 
 from django.shortcuts import redirect
 
@@ -98,6 +99,9 @@ def edit(request):
             user.security_question = form.cleaned_data['security_question']
             user.security_answer = form.cleaned_data['security_answer']
             user.save()
+
+            u2 = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+            login(request, u2)
 
             return HttpResponseRedirect('/homepage/index/')
 
