@@ -65,7 +65,7 @@ def email(request):
         dt = abs(ds.days)
 
         #email_body = dmp_render(request, 'You have an overdue item that you rented from the Colonial Heritage Foundation. It was due on', params)
-        send_mail('Overdue Rental from CHF', 'You have an overdue item that you rented from CHF. It was due on: %s and is now %s days overdue' % (Rented_Item.date_due, dt), 'spencerw.smith.byu@gmail.com',
+        send_mail('Overdue Rental from CHF', 'You have an overdue item that you rented from CHF. The following product: %s was due on: %s and is now %s days overdue. Items can be returned at the CHF Headquarters. If you have any questions please contact Customer Support at 801-256-9087' % (Rented_Item.rental_product, Rented_Item.date_due, dt), 'spencerw.smith.byu@gmail.com',
             [Rented_Item.renter.email], fail_silently=False)
 
     return dmp_render_to_response(request, 'batchprocessemail.html', params)

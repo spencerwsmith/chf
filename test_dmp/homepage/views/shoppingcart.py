@@ -11,6 +11,7 @@ from datetime import datetime
 import random
 from django.core.mail import send_mail
 import datetime
+from datetime import date
 import random
 import requests, getpass
 
@@ -32,7 +33,7 @@ def process_request(request):
         if product.isrental is not True:
             rows.append('''
             <div class='cart-item'>
-                <div style="color:green">Purchase:</div>
+                <b><div style="color:green">Purchase:</div></b>
                 <div class="cart-left">%s</div>
                 <div class='cart-middle'>Quantity: <input class='product-quantity' name="%s" type='number' required max='200' min='1' value='%d'/></div>
                 <div class="cart-right">
@@ -48,7 +49,7 @@ def process_request(request):
         else:
             rows.append('''
             <div class='cart-item'>
-                <div style="color:green">Rental:</div>
+                <b><div style="color:green">Rental:</div></b>
                 <div class="cart-left">%s</div>
                 <div class='cart-middle'>Days: <input class='product-quantity' name="%s" type='number' required max='200' min='1' value='%d'/></div>
                 <div class="cart-right">
@@ -61,7 +62,7 @@ def process_request(request):
                 <br>
             </div>
             ''' % (name, key, qty, "{:,}".format(price), key))
-    rows.append('''<div align='right'><a href="/homepage/shoppingcart.checkout/%d/"class="btn btn-default">Checkout</a></div> ''' % user.id)
+    rows.append('''<div align='right'><a href="/homepage/shoppingcart.checkout/%d/"class="btn btn-warning">Checkout</a></div> ''' % user.id)
     html = "\n"
     html = html.join(rows)
     return HttpResponse(html)
@@ -202,6 +203,13 @@ def checkout(request):
                 allrentals2 = allrentals.count()
                 print(allrentals2)
 
+
+                ds = datetime.date.today() + datetime.timedelta(1*365/12)
+
+                print(ds)
+
+
+
                 if product.isrental is not False:
                     rental_product = hmod.Rental_Product.objects.get(name=product.name)
                     rented_item = hmod.Rented_Item()
@@ -210,7 +218,7 @@ def checkout(request):
                     rented_item.rental_product = rental_product
                     rented_item.amount = product.price
                     rented_item.date_out = datetime.date.today()
-                    rented_item.date_due = '2015-05-05'
+                    rented_item.date_due = ds
                     rented_item.date_in = None
                     rented_item.save()
 

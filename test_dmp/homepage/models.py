@@ -24,6 +24,7 @@ class Users(AbstractUser):
     city = models.TextField(max_length=30, null=True, blank=True)
     state = models.TextField(max_length=2, null=True, blank=True)
     zip = models.TextField(max_length=13, null=True, blank=True)
+    phone = models.TextField(max_length=15, null=True, blank=True)
     security_question = models.TextField(null=True, blank=True)
     security_answer = models.TextField(null=True, blank=True)
     reset_code = models.TextField(null=True, blank=True)

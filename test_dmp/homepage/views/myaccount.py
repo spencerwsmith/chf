@@ -147,6 +147,13 @@ def editaccount(request):
     except hmod.Users.DoesNotExist:
         return HttpResponseRedirect('/homepage/index/')
 
+    if request.user.groups.filter(name='Admin').exists():
+        group = Group.objects.get(name='Admin')
+    elif request.user.groups.filter(name='Manager').exists():
+        group = Group.objects.get(name='Manager')
+    else:
+        group = Group.objects.get(name="Guest")
+
     form = UserEditForm(initial={
         'username': user.username,
         'first_name': user.first_name,
@@ -164,6 +171,7 @@ def editaccount(request):
         form = UserEditForm(request.POST)
         Users = hmod.Users()
         form.userid = user.id
+
         if form.is_valid():
             user.username = form.cleaned_data['username']
             user.first_name = form.cleaned_data['first_name']
@@ -176,6 +184,8 @@ def editaccount(request):
             user.zip = form.cleaned_data['zip']
             user.security_question = form.cleaned_data['security_question']
             user.security_answer = form.cleaned_data['security_answer']
+            group.user_set.add(user)
+            print(str(group))
             user.save()
 
 

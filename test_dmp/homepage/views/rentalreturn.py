@@ -94,11 +94,7 @@ def edit(request):
             damages = form.cleaned_data['damages']
             description = form.cleaned_data['description']
 
-            Rented_Item = hmod.Rented_Item.objects.get(rentalid=form.cleaned_data['rentalid'])
-            Rented_Item.date_in = form.cleaned_data['date_in']
-            Rented_Item.save()
-            print(Rented_Item.rentalid)
-            print(Rented_Item.date_in)
+
 
 
             r = requests.post(API_URL, data={
@@ -120,7 +116,29 @@ def edit(request):
             print(r.text)
 
             resp = r.json()
+
+
+
+            if damages is '':
+                    body = dmp_render(request, 'nodamages.html', template_vars)
+
+                    Rented_Item = hmod.Rented_Item.objects.get(rentalid=form.cleaned_data['rentalid'])
+                    Rented_Item.date_in = form.cleaned_data['date_in']
+                    Rented_Item.save()
+                    send_mail('CHF Receipt', body, 'spencerw.smith@yahoo.com',
+                    [user.email], fail_silently=False, html_message=body)
+
+                    return dmp_render_to_response(request, 'rrprocessed.html', template_vars)
+
             if 'error' in resp:
+                if damages is '':
+                    body = dmp_render(request, 'nodamages.html', template_vars)
+
+                    send_mail('CHF Receipt', body, 'spencerw.smith@yahoo.com',
+                    [user.email], fail_silently=False, html_message=body)
+
+                    return dmp_render_to_response(request, 'rrprocessed.html', template_vars)
+
                 print("ERROR: ", resp['error'])
                 return dmp_render_to_response(request, 'ccerror.html', template_vars)
 
@@ -136,6 +154,11 @@ def edit(request):
 
 
             template_vars['form'] = form
+            Rented_Item = hmod.Rented_Item.objects.get(rentalid=form.cleaned_data['rentalid'])
+            Rented_Item.date_in = form.cleaned_data['date_in']
+            Rented_Item.save()
+            print(Rented_Item.rentalid)
+            print(Rented_Item.date_in)
             return dmp_render_to_response(request, 'rrprocessed.html', template_vars)
 
 
@@ -162,13 +185,13 @@ class rrform(forms.Form):
     rentalid = forms.CharField(label="Rental ID")
     rental_product = forms.CharField(label="Product Name")
     date_in = forms.DateField(label='Date In (MM/DD/YY)')
-    damages = forms.CharField(label="Damages Charge")
-    description = forms.CharField(label="Description of Damages")
-    type = forms.MultipleChoiceField(choices=Card_Choices, label="Credit Type")
-    number = forms.CharField(label="Credit Card Number", max_length=16, min_length=10)
-    exp_month = forms.CharField(max_length=2, min_length=2)
-    exp_year = forms.CharField(max_length=2, min_length=2)
-    cvc = forms.CharField(max_length=4, label="CVC", min_length=3)
+    damages = forms.CharField(label="Damages Charge", required=False)
+    description = forms.CharField(label="Description of Damages", required=False)
+    type = forms.MultipleChoiceField(choices=Card_Choices, label="Credit Type", required=False)
+    number = forms.CharField(label="Credit Card Number", max_length=16, min_length=10, required=False)
+    exp_month = forms.CharField(max_length=2, min_length=2, required=False)
+    exp_year = forms.CharField(max_length=2, min_length=2, required=False)
+    cvc = forms.CharField(max_length=4, label="CVC", min_length=3, required=False)
 
 
 

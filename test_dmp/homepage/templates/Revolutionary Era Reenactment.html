@@ -1,34 +1,48 @@
 <%inherit file="base.htm" />
 
-<title>Festivals</title>
-
 <%block name="content">
 
+<title>Rev Era Festival</title>
 <h1>The Revolutionary Era Reenactment</h1>
 <h2> This event is perfect for all ages. Admission is free, so come have a fun time as you learn and gain a greater appreciation for those who came before us!</h2>
 <br>
-        <div class="item_container">
-            <img src="${ STATIC_URL }homepage/media/${ events.name }.jpg/"/>
-            <div>${ events.name }</div>
-            <div>${ events.location }</div>
+
+<table id="rentals_table" class="table table-condensed">
+    <tr>
+        <th><img src="${ STATIC_URL }homepage/media/${ events.name }.jpg/"/></th>
+        <th>
+
+            ${ events.name }</div>
+            <div>${ events.location }</div><br>
             <div>Event Start on: ${ events.start_date }</div>
             <div>Event Ends on: ${ events.end_date }</div><br>
             <div>${ events.description }</div>
-            <div class="text-right">
-            </div>
-        </div>
+            <div class="text-right"></div>
 
-<br><h3>Listed below are the main areas you can expect to visit at this event:</h3>
+        </th>
+    </tr>
+</table>
 
-        <div class="col-md-10">
-            %for Area in areas:
-                <div class="col-md-4">
-                    <h2>Area: ${ Area.aname }</h2>
-                    <img src="${ STATIC_URL }homepage/media/${ Area.aname }.jpg/"/>
-                    <h4></h4>
-                    <div>${ Area.description }</div>
-                    <h5>An expected sale item at ${ Area.aname }:</h5>
-                    %for Expected_Sale_Item in esi:
+
+
+<br>
+<br>
+
+
+<table id="rentals_table" class="table table-striped table-bordered">
+    <tr>
+        <th>Area Name</th>
+        <th>Photo</th>
+        <th>Description</th>
+        <th>Expected Sale Items</th>
+    </tr>
+ %for Area in areas:
+  <tr>
+    <td>Area: ${ Area.aname }</td>
+    <td><center> <img src="${ STATIC_URL }homepage/media/${ Area.aname }.jpg/"/></center></td>
+    <td>${ Area.description } </td>
+    <td>
+      %for Expected_Sale_Item in esi:
                         % if Area.aname == Expected_Sale_Item.area.aname:
                                 <a href="http://localhost:8000/homepage/productcatalog/">
                                 <img src="${ STATIC_URL }homepage/media/${ Expected_Sale_Item.name }.jpg/"/>
@@ -40,12 +54,10 @@
 
                         % endif
                     %endfor
-                    <br>
-                </div>
-            %endfor
+      </td>
 
-
-        </div>
-
+  </tr>
+%endfor
+</table>
 
 </%block>

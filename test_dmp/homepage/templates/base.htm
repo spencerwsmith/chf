@@ -64,7 +64,7 @@
     <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked">
         %if request.user.is_authenticated():
-
+        %if request.user.groups.filter(name='Admin').exists() or request.user.groups.filter(name='Manager').exists():
             <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
              Edit
@@ -79,15 +79,17 @@
                 <li role="presentation"><a href="http://localhost:8000/homepage/saleitems" class="glyphicon glyphicon-shopping-cart"> SaleItems</a>
                 </ul>
             </div>
-<!--%endif-->
+        %endif
         %endif
             <li role="presentation"><a href="http://localhost:8000/homepage/productcatalog" class="glyphicon glyphicon-gift"> Products Available</a>
             <!--<li role="presentation"><a href="http://localhost:8000/homepage/productlist" class="glyphicon glyphicon-gift"> Product List</a>-->
             <li role="presentation"><a href="http://localhost:8000/homepage/festivals" class="glyphicon glyphicon-leaf"> Festivals</a>
             %if request.user.is_authenticated():
             <li role="presentation"><a href="http://localhost:8000/homepage/myaccount" class="glyphicon glyphicon-user"> My Account</a>
+            %if request.user.groups.filter(name='Admin').exists() or request.user.groups.filter(name='Manager').exists():
             <li role="presentation"><a href="http://localhost:8000/homepage/batchprocess" class="glyphicon glyphicon-exclamation-sign"> Overdue Rentals</a>
             <li role="presentation"><a href="http://localhost:8000/homepage/rentalreturn" class="glyphicon glyphicon-random"> Rental Return</a>
+            %endif
             %endif
 
         </ul>

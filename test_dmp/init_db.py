@@ -270,7 +270,7 @@ reset_code = None
 ag.appointmentDate = datetime.datetime.now()
 ag.save()
 
-mgroup.user_set.add(u)
+mgroup.user_set.add(ag)
 
 
 ag = hmod.Agent()
@@ -290,7 +290,7 @@ reset_code = None
 ag.appointmentDate = datetime.datetime.now()
 ag.save()
 
-mgroup.user_set.add(u)
+mgroup.user_set.add(ag)
 
 
 ag = hmod.Agent()
@@ -310,7 +310,7 @@ reset_code = None
 ag.appointmentDate = datetime.datetime.now()
 ag.save()
 
-mgroup.user_set.add(u)
+mgroup.user_set.add(ag)
 
 
 s = hmod.Session()
@@ -548,7 +548,7 @@ sai.product = hmod.Stocked_Product.objects.get(name='Replica Rifle')
 sai.save()
 
 rp = hmod.Rental_Product()
-rp.name = '2 button vest'
+rp.name = '2 Button Vest'
 rp.price = '2.59'
 rp.description = 'A Paul Revere replica vest'
 rp.manufacturer = '4Fathers'
@@ -581,7 +581,7 @@ rp.replacement_price = '30.99'
 rp.save()
 
 rp = hmod.Rental_Product()
-rp.name = 'pantaloons'
+rp.name = 'Pantaloons'
 rp.price = '2.90'
 rp.description = 'Revolutionary era pantaloons'
 rp.manufacturer = '4Fathers'

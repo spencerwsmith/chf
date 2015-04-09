@@ -28,6 +28,14 @@ def process_request(request):
     except hmod.Users.DoesNotExist:
         return HttpResponseRedirect('/homepage/index/')
 
+    if request.user.groups.filter(name='Admin').exists():
+        group = Group.objects.get(name='Admin')
+    elif request.user.groups.filter(name='Manager').exists():
+        group = Group.objects.get(name='Manager')
+    else:
+        group = Group.objects.get(name="Guest")
+
+    print(str(group))
 
     form = PasswordForm(initial={
         'username': user.username,
@@ -35,10 +43,10 @@ def process_request(request):
     })
     if request.method == 'POST':
         form = PasswordForm(request.POST)
-        user = hmod.Users()
+        #user = hmod.Users()
         form.userid = user.id
-        user = hmod.Users.objects.get(id=request.urlparams[0])
-        user.delete()
+        #user = hmod.Users.objects.get(id=request.urlparams[0])
+        #user.delete()
         if form.is_valid():
             user.username = form.cleaned_data['username']
             user.set_password(form.cleaned_data['password'])

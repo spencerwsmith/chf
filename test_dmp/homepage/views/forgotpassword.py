@@ -36,8 +36,12 @@ def process_request(request):
             user.save()
             print(user.exp_date)
 
-            send_mail('New CHF Password Code', 'Your new password code is: %s    please use to access your account and change your password in the following link: localhost:8000/homepage/passcode' % user.reset_code, 'spencerw.smith@yahoo.com',
-            [user.email], fail_silently=False)
+            template_vars['user'] = user
+            body = dmp_render(request, 'pass.html', template_vars)
+
+            send_mail('New CHF Password Code', body, 'spencerw.smith@yahoo.com',
+            [user.email], fail_silently=False, html_message=body)
+
             # httpresponseredirect to a different url that says "check your email"
             return dmp_render_to_response(request, 'email_forgot_password.html', template_vars)
 
